@@ -1,0 +1,201 @@
+:root{
+    --white: #ffffff;
+    --gray1: #f5f6f7;
+    --gray2: #f0f2f5;
+    --gray3: #dddfe2;
+    --gray4: #8a8d91;
+    --gray5: #737373;
+    --black: #1c1e21;
+    --light-blue: $e7f3ff;
+    --blue1: #1877f2;
+    --blue2: #166fe5;
+    --green1: #42b72a;
+    --green2: #36a420;
+    --green3: #6b9f5e;
+
+}
+
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content */
+  .modal-content {
+    padding: 20px;
+    background-color: var(--white);
+    margin: auto;
+    border: 1px solid var(--gray5);
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1), 0 8px 16px rgba(0,0,0,0.1);
+    width: 35%;
+    height: 92%;
+    box-shadow: 5px 4px 8px var(--gray5);
+  }
+  
+  /* The Close Button */
+  .close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+
+
+
+
+  /*----------------------
+  ------Sign Up Form------
+  ----------------------*/
+  .divider-signup{
+    margin-left: -20px;
+    margin-right: -20px;
+  }
+
+  .signup-head{
+    font-weight: bold;    
+  }
+
+  .signup-para{
+      font-size: medium;
+      color: var(--gray5);
+  }
+
+.upperpart{
+    text-align: left;
+  }
+
+  .lowerpart .contents{
+      color: var(--gray5);
+      text-align: left;
+  }
+
+  .contents{
+      margin-bottom: 0px;
+      margin-top: 6px;
+  }
+
+  .date{
+      padding: 10px;
+  }
+
+  .question-mark:hover{
+  cursor: pointer;  
+  }
+
+
+
+  .radio-div{
+      margin: 1px solid var(--black);
+      flex: 1;
+  }
+
+
+  .form-input-signup{
+      width: 100%;
+      /* padding: 0 1.6rem; */
+      padding: 4px;
+      font-size: 1.8rem;
+      margin: 10px 10px 10px 5px;
+      background-color: var(--gray2);
+  }
+
+  .form-input-signup:focus{
+    outline: none;
+}
+
+.form-input-signup:focus::placeholder{
+    opacity: 0.5;
+}
+
+.form-input-signup::placeholder{
+    opacity: 0.5;
+}
+
+.form-input-date{
+    width: 100%;
+    padding: 0 1.6rem;
+    font-size: 1.8rem;
+    margin: 10px 10px 10px 5px;
+    background-color: white;
+}
+
+.form-input-date option{
+    margin-left: 10px;
+    align-items: center;
+}
+
+
+.form-input-gender{
+    width: 100%;
+    padding: 0 1.6rem;
+    font-size: 1.8rem;
+    margin: 10px 10px 10px 5px;
+    border: 1px solid var(--gray3);
+    border-radius: 5px;
+    padding: 4px;
+}
+
+
+
+
+
+ .signup-policy{
+     font-size: 12px;
+     color: var(--gray4);
+ }
+
+ .signup-button{
+     padding: 0.5rem 5.6rem 0.5rem 5.6rem;
+     margin-bottom: 5px;
+     background-color: var(--green1);
+     border: none;
+     border-radius: 4px;
+     color: white;
+     font-weight: bold;
+ }
+
+ .signup-button:hover{
+     background-color: var(--green3);
+ }
+
+ /* .radio-div{
+     border: 1px solid var(--black);
+     margin: 1px;
+     padding: 0px;
+ } */
+
+ .gender-text{
+     text-align: left;
+     margin-left: 0px;
+
+ }
+
+ .radio{
+     text-align: right;
+     margin-right: 0px;
+
+ }
+
+ .policy-span{
+     margin: 5px;
+     color: var(--blue2);
+ }

@@ -1,0 +1,415 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+:root{
+    --white1: #ffffff;
+    --white2: #eff2f5;
+    --gray1: #f5f6f7;
+    --gray2: #f0f2f5;
+    --gray3: #dddfe2;
+    --gray4: #8a8d91;
+    --gray5: #737373;
+    --black: #1c1e21;
+    --light-blue: #e7f3ff;
+    --blue1: #1877f2;
+    --blue2: #166fe5;
+    --blue3: #2e81f4;
+    --green1: #42b72a;
+    --green2: #36a420;
+
+}
+.hrline{
+    height: 2px var(--gray3);
+    margin-left: 19%;
+    margin-right: 17.5%;
+}
+
+.header-info{
+    background-color: #dddfe2;
+    padding: 5px;
+    border-radius: 30px; 
+}
+
+.header-info-profile{
+    background-color: #eff2f5; 
+    border-radius: 30px;
+}
+
+.profile-1 img{
+    border-radius: 50%;
+    width: 160px;
+    margin-top: -40px;
+    margin-left: -20px;
+    border: 5px solid white;    
+}
+
+.profile-1{
+    z-index: 2;
+    position: relative;
+}
+
+.camera-icon{
+    background-color: var(--gray3);
+    position: absolute;
+    align-items: flex-end;
+    right: 10%;
+    bottom: 10%;
+    padding: 8px;
+    border-radius: 50%;
+    padding-bottom: 0;
+    cursor: pointer;
+    
+}
+
+.cv-profile{
+    height: 370px;
+    overflow: hidden;
+    border-radius: 8px;    
+    width: 85%;
+    margin-left: 1%;
+}
+
+.profile-div{
+    border-bottom: 1px solid var(--gray4);
+}
+
+.cv-profile img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.profile-2{
+padding: 15px;
+padding-bottom: 0;
+margin-bottom: 0;
+}
+
+.profile-2 h3{
+    font-weight: bold;
+    color: black;
+}
+
+.profile-2 p{
+    color: var(--gray5);
+}
+
+.profile-3{
+    display: flex;
+    align-items: flex-end;
+    margin-left: auto;
+    
+}
+
+.profile3-div{
+    display: flex;
+    background-color: #1a6ed8;
+    color: white;
+    font-weight: bold;
+    padding: 5px 8px 5px 8px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.profile3-div:hover{
+    background-color: var(--blue1);
+}
+
+
+.profile3-div .add-story{
+    margin: 0 5px;
+}
+
+.profile4-div{
+    display: flex;
+    background-color: var(--gray3);
+    font-weight: bold;
+    padding: 5px 8px 5px 8px;
+    margin: 3px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.profile4-div:hover{
+    background-color: lightgray;
+}
+
+.profile4-div .pen{
+    margin: 0 5px;
+}
+
+
+.profile-4{
+    display: flex;
+    align-items: flex-end;
+}
+
+
+
+
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.upperpart{
+    display: flex;
+    width: 100%;
+    position: relative;
+    justify-content: center;
+}
+
+.edit-pp-button{
+    display: flex;
+    position: absolute;
+    background-color: white;
+    padding: 4px 10px 4px 10px;
+    border-radius: 5px;
+    right: 9%;
+    bottom: 5%;
+    cursor: pointer;    
+}
+
+.edit-pp-camera{
+    align-self: center;
+    margin-right: 3px;
+}
+
+.edit-pp-text{
+    align-self: flex-end;
+    margin-left: 3px;
+}
+
+.lowerpart{
+    width: 70%;
+    display: flex; 
+    justify-content: space-evenly;
+}
+
+.friends{
+    display: flex;
+    justify-content: flex-start;
+    left: 0;
+    top: 0;
+}
+
+.frn img{
+    border-radius: 50%;
+    height: 32px; 
+    width: 32px;
+    margin-right: -4px;
+    border: 2px solid white;
+}
+
+
+
+
+
+
+
+
+/* Profile Pic Update Begins*/
+.upload-pp label{
+    background-color: var(--green2);
+    padding: 6px;
+    border-radius: 3px;
+    width: 80%;
+    text-align: center;
+    margin: 10px;
+    margin-left: 12% !important;
+    color: white;
+    cursor: pointer;
+}
+.upload-pp label:hover{
+    background-color: var(--green1);
+}
+
+.preview-pp img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.preview-image{
+    height: 200px;
+    width: 200px;
+    border: 1px solid black;
+    margin-left: 30%;    
+}
+
+.update-pp button{
+    background-color: var(--blue2);
+    padding: 6px;
+    border-radius: 3px;
+    width: 80%;
+    text-align: center;
+    margin: 10px;
+    margin-left: 12% !important;
+    color: white;
+    font-weight: bold;
+}
+
+
+/* Profile Pic Update Ends*/
+
+
+
+
+
+/* Edit profile modal begins */
+a{
+    text-decoration: none;
+}
+.modal-body h5{
+    font-weight: bold;
+}
+.profile-header{
+    display: flex;
+}
+.modal-profile button{    
+    color: #1877f2;
+    border: none;
+    background-color: white;
+    margin-left: 66%;
+}
+
+.modal-profile img{
+    width: 30%;
+    border-radius: 50%;
+    margin-left: 30%;
+}
+
+.cover-header{
+    display: flex;
+}
+.modal-cover a{
+    margin-left: 68%;
+}
+
+.modal-cover{
+    overflow: hidden;
+}
+
+.modal-cover img{
+    object-fit: cover;
+    height: 150px;
+    width: 85%;
+    margin-left: 8%;
+    border-radius: 6px;
+}
+
+.bio-header{
+    display: flex;
+}
+.bio a{
+    margin-left: 86%;
+}
+.bio span{
+    color: var(--gray4);
+    margin-left: 38%;
+}
+
+.intro i{
+    margin-left: 15%;
+}
+
+.intro span{
+    font-size: small;
+    color: var(--gray4);
+    text-align: center;
+    margin-left: 5%;
+}
+
+
+.modal-foot button{
+    background-color: var(--light-blue);
+    color: var(--blue2);
+    font-weight: bold;
+    border: none;
+    width: 100%;
+    padding: 5px;
+    margin: 6px 0;
+    border-radius: 5px;
+}
+
+.modal-foot button:hover{
+    /* background-color: #dbe7f2; */
+    background-color: #e6f0fe;
+}
+
+
+/* 2nd Modal Part */
+.modal2-body{
+    display: flex;
+    justify-content: space-around;
+    justify-self: center;
+}
+
+.modal2-body span{
+    text-align: center;
+    justify-self: center;
+}
+
+.icons{
+    background-color: var(--gray3);
+    padding: 8px;
+    margin: 4px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.part-first{
+    display: flex;
+    background-color: #e7f3ff ;
+    width: 100%;
+    color: blue;
+    flex: 1;
+}
+
+
+.part-second{
+    display: flex;
+    flex: 1;
+    width: 100%;
+}
+
+.part-third{
+    flex: 0.5;
+}
+
+
+
+.photos-section{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+
+
+.pic{
+    height: 40px;
+    width: 40px;
+    background-color: #737373;
+    margin: 2px;
+    padding: 40px;
+    border-radius: 4px;
+}
+
+.modal2-buttom button{
+    width: 95%;
+    margin: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    padding: 5px;
+ }
+
+ .modal2-buttom button:hover{
+    background-color: var(--gray4);
+}
+/* Edit profile modal ends */
