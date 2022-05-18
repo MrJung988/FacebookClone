@@ -4,18 +4,14 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProfileController;
 
-// Route::get('/profile', function () {
-//     return view('profile');
-// });
 
-Route::get('/',[CustomAuthController::class, 'logReg'])->name('logReg')->middleware('alreadyLoggedIn');
+// Route::get('/',[CustomAuthController::class, 'logReg'])->name('logReg');
 
-Route::post('/',[CustomAuthController::class, 'registerUser'])->name('register-user');  
+Route::get('/',[CustomAuthController::class, 'check'])->name('authCheck');
 
-Route::post('/login', [CustomAuthController::class, 'loginUser'])->name('login-user');
+Route::post('/registerUser',[CustomAuthController::class, 'registerUser'])->middleware('guest')->name('register-user');  
 
-// Route::get('/dashboard', [CustomAuthController::class, 'dashboard'])->name('dashboard')->middleware('isLoggedIn');
-Route::get('/facebook', [CustomAuthController::class, 'facebook'])->name('facebook')->middleware('isLoggedIn');
+Route::post('/loginUser', [CustomAuthController::class, 'loginUser'])->middleware('guest')->name('login-user');
 
 Route::get('/logout', [CustomAuthController::class, 'logout']);
 

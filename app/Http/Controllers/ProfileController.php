@@ -23,15 +23,16 @@ class ProfileController extends Controller
 
 
     public function profileUpdate(Request $request){
+        // dd($request->all());
         // to update the profile picture
         if($request-> hasFile('profilePic')){
             $profilePic = $request-> file('profilePic');
             $filename = time().'.'.$profilePic->getClientOriginalExtension();
             Image::make($profilePic)->resize(300, 300)->save(public_path('images/uploads/profile-picture/'.$filename));
             
-
             // @dd($filename);
-            $users = Auth::user();
+            // $users = Auth::user();
+            $users = User::where('id', Auth::User()->id)->first();
             $users-> profilePic = $filename;
             $users-> save();
         }

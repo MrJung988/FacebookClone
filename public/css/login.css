@@ -183,6 +183,12 @@ a{
     border-bottom: 1px solid var(--gray3);
 }
 
+.divider-signup{
+    margin: 0 !important;
+    border-bottom: 1px solid var(--gray3);
+}
+
+
 .form-create-account-btn{
     font-size: 1.4rem;
     height: 4.5rem;
@@ -234,6 +240,9 @@ a{
 
 .modal-content{
     width: 100% !important;
+    padding: 0 !important;
+    height: 100% !important;
+    margin-top: -10% !important;
 }
 
 .modal-header{

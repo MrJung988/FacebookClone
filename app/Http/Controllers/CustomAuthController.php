@@ -5,21 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
 class CustomAuthController extends Controller
 {
-    public function logReg(){
-        return view ('auth.logReg');
+    
+
+    public function check(){
+        if(Auth::check()){
+            return view('facebook');
+        }
+            return view('auth.logReg');
     }
 
-    // public function registration(){
-    //     return view ('auth.logReg');
-    // }
 
     public function registerUser(Request $request){
 
-        $request->validate([
+        // var_dump(request()->all());
+        // return request()->all();
+
+        $attributes = $request->validate([
             'fname' => 'required',
             'lname' => 'required',
             'mobOrMail' => 'required | min:10 | max:25 | unique:users',
@@ -30,27 +36,15 @@ class CustomAuthController extends Controller
             'gender' => 'required',
         ]);
 
+        // dd('Successfully validated!');
 
-        $user = User::create([
-            'fname' => $request->fname,
-            'lname' => $request->lname,
-            'mobOrMail' => $request->mobOrMail,
-            'password' => Hash::make($request->password),            
-            'month' => $request->month,
-            'day' => $request->day,
-            'year' => $request->year,
-            'gender' => $request->gender,
-        ]);
-        
-        
-        if ($user){
-            return back()->with('success','You have registered successfully');
+        User::create($attributes);
+                
+        if ($attributes){
+            return redirect('/')->with('success','Your account has been created.');
         }else {
-            return back()->with('fail', 'Something Wrong');
+            return redirect('/')->with('fail', 'Something Wrong');
         }
-
-
-
         
     }
 
@@ -60,45 +54,23 @@ class CustomAuthController extends Controller
             'password' => 'required | min:6 | max:12',
         ]);
 
-        $user = User::where('mobOrMail', '=', $request->mobOrMail)->first();
-        
-        if ($user){
-            if(Hash::check($request->password, $user->password)){
-                $request-> session()->put('loginId', $user->id);
-                // return redirect('dashboard');
-                return redirect('facebook');
-            }else{
-                return back()->with('fail', 'Password Does not matches.');
-            }
+        // dd('hl');
+        if (Auth::attempt(['mobOrMail' => $request->mobOrMail, 'password' => $request->password])) {
+            return redirect()->route('authCheck')->with('success','You have registered successfully');
         }else{
-            return back()->with('fail', 'This mobile or email is not registered');
+            return back()->with('fail', 'The provided information do not match our records.');
         }
     }
-
-    // public function dashboard(){
-    //     $data = array();
-    //     if(Session::has('loginId')){
-    //         $data = User::where('id', '=', Session::has('loginId'))->first();
-    //     }
-    //     return view('dashboard', compact('data'));  
-    // }
-
-    public function facebook(){
-        $data = array();
-        if(Session::has('loginId')){
-            $data = User::where('id','=', Session::get('loginId'))->first();
-        }
-
-        // dd($data);
-        return view('facebook', ['data'=>$data]);
-    }
-
    
 
-    public function logout(){
-        if(Session::has('loginId')){
-            Session::pull('loginId');
-            return redirect('/');
-        }
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+ 
+        $request->session()->regenerateToken();
+        
+        return redirect('/');
+        // return redirect('/')->with('success', 'You're logged out!);
     }
 }

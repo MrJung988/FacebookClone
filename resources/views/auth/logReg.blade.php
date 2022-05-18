@@ -22,7 +22,7 @@
             <p class="title-paragraph">Connect with friends and the world around you on Facebook.</p>
         </div>
         
-        {{-- FORM --}}
+        {{-- Login FORM --}}
         <div class="form-container">
             <form action="{{route('login-user')}}" class="form" method="POST">
                 @if (session()->has('success'))
@@ -61,16 +61,13 @@
                 <a href="#" class="create-page-link">Create a Page</a> for a celebrity, brand or business.
             </p>
         </div>
+        {{-- Login Form --}}
 
 
-          {{-- Modal Begins --}}
-          {{-- <div class="modal fade exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"> --}}
-          <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        {{-- SignUp Modal Begins --}}
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
               <div class="modal-content">
-                {{-- <div class="modal-header">
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div> --}}
                 <div class="modal-body">  
                         <div class="modal-header">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -81,12 +78,12 @@
                             <h1 class="signup-head">Sign Up</h1>
                             <p class="signup-para">It's quick and easy.</p>
                         </div>                                    
-                        <div class="divider divider-signup"></div>
+                        <div class="divider-signup"></div>
                         <div class="lowerpart">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <input type="text" name="fname" id="fname" placeholder="First name" class="form-control form-input-signup" value="{{old('fname')}}">
-                                    <span class="text-danger error">@error('fname') {{$message}} @enderror</span>
+                                    <span class="text-danger error small mt-0">@error('fname') {{$message}} @enderror</span>
                                 </div>
                                 <div class="col-sm-6">
                                     <input type="text" name="lname" id="lname" placeholder="Last name" class="form-control form-input-signup" value="{{old('lname')}}">
@@ -140,15 +137,15 @@
                                     <p class="contents">Gender <i class="fa-solid fa-circle-question question-mark" title="Click for the more information"></i></p>
                                     <div class=" radio-div form-input-gender">
                                         <label for="female" class="gender-text">Female</label>
-                                        <input type="radio" name="gender" class="radio" value="female">
+                                        <input type="radio" id="female" name="gender" class="radio" value="female">
                                     </div>
                                     <div class=" radio-div form-input-gender">
                                         <label for="male" class="gender-text">Male</label>
-                                        <input type="radio" name="gender" class="radio" value="male">
+                                        <input type="radio" id="male" name="gender" class="radio" value="male">
                                     </div>
                                     <div class=" radio-div form-input-gender">
                                         <label for="custom" class="gender-text">Other</label>
-                                        <input type="radio" name="gender" class="radio" value="other">
+                                        <input type="radio" id="custom" name="gender" class="radio" value="other">
                                     </div>
                                     <span class="text-danger">@error('gender') {{$message}} @enderror</span> 
                                 </div>
@@ -165,8 +162,8 @@
                 
               </div>
             </div>
-          </div>
-        {{-- The Modal Ends --}}
+        </div>
+        {{-- The SignUp Modal Ends --}}
     </main>
       
 

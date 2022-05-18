@@ -236,18 +236,17 @@ body{
 }
 
 .feed{
-    /* flex-basis: 60%; */
-    flex: 6;
     padding: 30px 100px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
+    flex-basis: 50%;
 }
 
 .sidebar{
     padding: 25px 10px;
-    flex-direction: 0.33;
+    flex-basis: 25%;
 }
 
 
@@ -387,7 +386,7 @@ body{
     background-color: white;
     border-radius: 12px;
     box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
-    width: 70%;
+    width: 100%;
 }
 
 .messageSender-top{
@@ -452,9 +451,70 @@ body{
 /* MESSAGE SENDER ENDS*/
 
 
+
+/* Create Room Begins */
+.createRoom{
+    background-color: white;
+    display: flex;
+    box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+    margin-top: 30px;
+    border-radius: 12px;
+    width: 100%;
+    padding: 15px;
+}
+
+.room img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.createRoom1{
+    display: flex;
+    flex: 1;
+    border: 2px solid lightblue;
+    align-items: center;
+    justify-items: center;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.createRoom1 i{
+    margin-left: 10px;
+}
+
+.createRoom1 h6{
+    margin-left: 15px;
+    color: var(--blue1);
+}
+
+.createRoom2{
+    display: flex;
+    flex: 2;
+    justify-content: space-evenly;
+}
+
+.room svg{
+    width: 45px;
+    vertical-align: middle;
+    border: 1px solid var(--gray3);
+    border-radius: 50%;
+    height: 45px;
+    color: var(--gray4);
+    cursor: pointer;
+}
+
+.room svg:hover{
+    background-color: var(--gray2);
+}
+
+/* Create Room Ends */
+
+
 /* POST SECTION BEGINS*/
 .post{
-    width: 70%;
+    width: 100%;
     margin-top: 15px;
     border-radius: 15px;
     background-color: var(--white1);
@@ -523,9 +583,8 @@ body{
 /* POST SECTION ENDS */
 
 /* widgets  */
-.widgets{
-    /* flex-basis: 25%; */
-    flex: 2;
+.widgets{    
+    flex-basis: 25%;
 }
 
 
@@ -611,6 +670,7 @@ body{
     display: flex;
     padding: 10px;
     cursor: pointer;
+    width: 100%;
     
 }
 

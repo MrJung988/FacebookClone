@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{$pdata->fname}} | Facebook</title>
+    <title>{{auth()->user()->fname}} | Facebook</title>
     <script src="https://kit.fontawesome.com/bc607b3e78.js" crossorigin="anonymous"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
     <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet">
@@ -22,7 +22,7 @@
         </div>
         <div class="header-middle">
             <div class="header-option">
-                <a href="{{route('facebook')}}"><span class="material-icons" style="color: black"><svg viewBox="0 0 28 28" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 g28tu32o" fill="currentColor" height="35" width="35"><path d="M25.825 12.29C25.824 12.289 25.823 12.288 25.821 12.286L15.027 2.937C14.752 2.675 14.392 2.527 13.989 2.521 13.608 2.527 13.248 2.675 13.001 2.912L2.175 12.29C1.756 12.658 1.629 13.245 1.868 13.759 2.079 14.215 2.567 14.479 3.069 14.479L5 14.479 5 23.729C5 24.695 5.784 25.479 6.75 25.479L11 25.479C11.552 25.479 12 25.031 12 24.479L12 18.309C12 18.126 12.148 17.979 12.33 17.979L15.67 17.979C15.852 17.979 16 18.126 16 18.309L16 24.479C16 25.031 16.448 25.479 17 25.479L21.25 25.479C22.217 25.479 23 24.695 23 23.729L23 14.479 24.931 14.479C25.433 14.479 25.921 14.215 26.132 13.759 26.371 13.245 26.244 12.658 25.825 12.29"></path></svg></span></a>
+                <a href="{{route('authCheck')}}"><span class="material-icons" style="color: black"><svg viewBox="0 0 28 28" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 g28tu32o" fill="currentColor" height="35" width="35"><path d="M25.825 12.29C25.824 12.289 25.823 12.288 25.821 12.286L15.027 2.937C14.752 2.675 14.392 2.527 13.989 2.521 13.608 2.527 13.248 2.675 13.001 2.912L2.175 12.29C1.756 12.658 1.629 13.245 1.868 13.759 2.079 14.215 2.567 14.479 3.069 14.479L5 14.479 5 23.729C5 24.695 5.784 25.479 6.75 25.479L11 25.479C11.552 25.479 12 25.031 12 24.479L12 18.309C12 18.126 12.148 17.979 12.33 17.979L15.67 17.979C15.852 17.979 16 18.126 16 18.309L16 24.479C16 25.031 16.448 25.479 17 25.479L21.25 25.479C22.217 25.479 23 24.695 23 23.729L23 14.479 24.931 14.479C25.433 14.479 25.921 14.215 26.132 13.759 26.371 13.245 26.244 12.658 25.825 12.29"></path></svg></span></a>
             </div>
             <div class="header-option">
                 <span class="material-icons"><svg viewBox="0 0 28 28" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 py1f6qlh" fill="currentColor" height="35" width="35"><path d="M8.75 25.25C8.336 25.25 8 24.914 8 24.5 8 24.086 8.336 23.75 8.75 23.75L19.25 23.75C19.664 23.75 20 24.086 20 24.5 20 24.914 19.664 25.25 19.25 25.25L8.75 25.25ZM17.163 12.846 12.055 15.923C11.591 16.202 11 15.869 11 15.327L11 9.172C11 8.631 11.591 8.297 12.055 8.576L17.163 11.654C17.612 11.924 17.612 12.575 17.163 12.846ZM21.75 20.25C22.992 20.25 24 19.242 24 18L24 6.5C24 5.258 22.992 4.25 21.75 4.25L6.25 4.25C5.008 4.25 4 5.258 4 6.5L4 18C4 19.242 5.008 20.25 6.25 20.25L21.75 20.25ZM21.75 21.75 6.25 21.75C4.179 21.75 2.5 20.071 2.5 18L2.5 6.5C2.5 4.429 4.179 2.75 6.25 2.75L21.75 2.75C23.821 2.75 25.5 4.429 25.5 6.5L25.5 18C25.5 20.071 23.821 21.75 21.75 21.75Z"></path></svg></span>
@@ -37,8 +37,8 @@
         <div class="header-right">
             
             <div class="header-info">
-                <a href="profile" style="display: flex; text-decoration: none; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/{{$pdata->profilePic}}" alt="">
-                <h4 class="profile-name">{{$pdata->fname}}</h4></a>
+                <a href="profile" style="display: flex; text-decoration: none; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                <h4 class="profile-name">{{auth()->user()->fname}}</h4></a>
             </div>
             
             <div class="header-icons">
@@ -62,7 +62,7 @@
     <div class="container">
         <div class="upperpart">
             <div class="cv-profile">
-                <img data-imgperflogname="profileCoverPhoto" alt="Cover Photo" class="i09qtzwb rq0escxv n7fi1qx3 datstx6m pmk7jnqg j9ispegn kr520xx4 k4urcfbm" referrerpolicy="origin-when-cross-origin" src="images/uploads/cover-photo/{{$pdata->coverPic}}">
+                <img data-imgperflogname="profileCoverPhoto" alt="Cover Photo" class="i09qtzwb rq0escxv n7fi1qx3 datstx6m pmk7jnqg j9ispegn kr520xx4 k4urcfbm" referrerpolicy="origin-when-cross-origin" src="images/uploads/cover-photo/cvdefault.jpg">
             </div>
             <div class="edit-pp-button">
                 <div class="edit-pp-camera">
@@ -76,36 +76,36 @@
         <div class="lowerpart">
 
             <div class="profile-1">
-                <img src="/images/uploads/profile-picture/{{$pdata->profilePic}}" alt="ProfilePic">   {{--user-profile--}}
+                <img src="/images/uploads/profile-picture/default.jpg" alt="ProfilePic">   {{--user-profile--}}
                 <div class="camera-icon">
                     <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" data-bs-toggle="modal" data-bs-target="#ppupdate" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/0Y-lDUkZv4T.png?_nc_eui2=AeGBWnstU8tcrGN2vRgqfezGWw5hm4Pt1W1bDmGbg-3VbVeozteS_gj76CPeJsyObD6rSmXX9TAFfFnlsbAVX_Vm&quot;); background-position: 0px -364px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
                 </div>
             </div>
             <div class="col-md-4 profile-2">
                 <div class="cv-name">
-                    <h3>{{$pdata->fname}} {{$pdata->lname}}</h3>
+                    <h3>{{auth()->user()->fname}} {{auth()->user()->lname}}</h3>
                 </div>
                 <div class="cv-frn">
                     <p>410 friends</p>
                 </div>
                 <div class="friends">
                     <div class="frn frn1">
-                        <img src="https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/277814387_502216224938013_7301033993856422464_n.jpg?_nc_cat=110&ccb=1-6&_nc_sid=0debeb&_nc_ohc=wburyuOnKF0AX9cVSfX&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT9Xtv_AtDJYJBqXT1jJTvqhACNSxToAE2mLQMJmCYPsrQ&oe=627DE1D2" alt="">
+                        <img src="/images/uploads/friend-list/1.jpg" alt="">
                     </div>
                     <div class="frn frn2">
-                        <img src="https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/271704166_449431480216488_914421274574774811_n.jpg?_nc_cat=110&ccb=1-6&_nc_sid=0debeb&_nc_ohc=Lkg3WBs6secAX9xLnti&tn=4W4xWJq-ZrrfX8MM&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT9aNVAzmotvoVhANQFIZHFoQKFcZbIvRZY9-vhM9Vn7fw&oe=627E827E" alt="">
+                        <img src="/images/uploads/friend-list/2.jpg" alt="">
                     </div>
                     <div class="frn frn3">
-                        <img src="https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/271705731_449431443549825_6461733420240259758_n.jpg?_nc_cat=101&ccb=1-6&_nc_sid=0debeb&_nc_ohc=fa5z27g98bAAX9CYEUH&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT_F3iO2SqGnVTpK5dJ3SxS1mVEH_UQMKQreCscNXT3a9w&oe=627E890E" alt="">
+                        <img src="/images/uploads/friend-list/3.jpg" alt="">
                     </div>
                     <div class="frn frn4">
-                        <img src="https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/270458515_444323127393990_7651172922469900597_n.jpg?_nc_cat=108&ccb=1-6&_nc_sid=0debeb&_nc_ohc=4WO80yjtbPwAX-PnJay&_nc_oc=AQkEkIyhFTtUMUf3uWc0iLW6WU33KGVKd5QBL8KARvGEg50UO-VCl5gZ_RQQ9OdLZI8&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT_4dK_4ge7VDhAa1o4t9eT95a0sSl5_tvyExSRW5OJDog&oe=627ECC0E" alt="">
+                        <img src="/images/uploads/friend-list/4.jpg" alt="">
                     </div>
                     <div class="frn frn5">
-                        <img src="https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/263853056_435259251633711_1894524251502781093_n.jpg?_nc_cat=105&ccb=1-6&_nc_sid=174925&_nc_ohc=P-2OlRp8NmUAX96zIN1&tn=4W4xWJq-ZrrfX8MM&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT88yUDO212H_yHqXw_FEVfYW0NlWMHaDgyiJv2srRwj3A&oe=627E569B" alt="">
+                        <img src="/images/uploads/friend-list/5.jpg" alt="">
                     </div>
                     <div class="frn frn6">
-                        <img src="https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/267468612_432156285277341_3596418653864011387_n.jpg?_nc_cat=109&ccb=1-6&_nc_sid=0debeb&_nc_ohc=FmCFhX4tT4MAX8wN_JE&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT_NrxoN0y0q_PyTUPNTpaeDtDvPMtej5Hbd3jHhKtVMSQ&oe=627F4539" alt="">
+                        <img src="/images/uploads/friend-list/6.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -170,60 +170,58 @@
 
 
     {{-- Logout Button Modal Begins--}}
-    {{-- Log out Model Begins --}}
-<div class="modal fade logout" id="logoutButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <div class="upper-post logoutbar">
-                    <img class="user-profile" src="/images/uploads/profile-picture/{{$pdata->profilePic}}" alt="">
-                    <div class="logbar">
-                        <h5>{{$pdata->fname}} {{$pdata->lname}}</h5>
-                        <p style="margin: 0;">See your profile</p>
+    <div class="modal fade logout" id="logoutButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="upper-post logoutbar">
+                        <img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                        <div class="logbar">
+                            <h5>{{auth()->user()->fname}} {{auth()->user()->lname}}</h5>
+                            <p style="margin: 0;">See your profile</p>
+                        </div>
                     </div>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            {{-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
+            {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                 </div>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          {{-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
-          {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
-            </div>
-        <div class="modal-body">
-            
-            <div class="logoutbar">
-                <div class="logbar">
-                    <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/QnBF2xVFFiX.png?_nc_eui2=AeENxmeANpWqYx99gZNhKsd8_qJ7DKUFU4b-onsMpQVThn5-KBKBVuPWgQVxYkjhhYFXADnhzcv0E795KZnL-wwb&quot;); background-position: 0px -25px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+            <div class="modal-body">
+                
+                <div class="logoutbar">
+                    <div class="logbar">
+                        <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/QnBF2xVFFiX.png?_nc_eui2=AeENxmeANpWqYx99gZNhKsd8_qJ7DKUFU4b-onsMpQVThn5-KBKBVuPWgQVxYkjhhYFXADnhzcv0E795KZnL-wwb&quot;); background-position: 0px -25px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                    </div>
+                    <p>Give Feedback</p>
                 </div>
-                <p>Give Feedback</p>
-            </div>
-            <div class="logoutbar">                        
-                <div class="logbar">
-                    <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/-56R6vKcX9g.png?_nc_eui2=AeHl21Otv6_aY9BU1NKCD63bM5jhPKEU0WIzmOE8oRTRYkX6elHf2eDxxRVn0jXAjDxnL7FEQDq7L_x5BOGqNiEK&quot;); background-position: -42px -228px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                <div class="logoutbar">                        
+                    <div class="logbar">
+                        <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yZ/r/-56R6vKcX9g.png?_nc_eui2=AeHl21Otv6_aY9BU1NKCD63bM5jhPKEU0WIzmOE8oRTRYkX6elHf2eDxxRVn0jXAjDxnL7FEQDq7L_x5BOGqNiEK&quot;); background-position: -42px -228px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                    </div>
+                    <p>Setting & Privacy</p>
                 </div>
-                <p>Setting & Privacy</p>
-            </div>
-            <div class="logoutbar">
-                <div class="logbar">
-                    <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/5hWWM5G_3AH.png?_nc_eui2=AeEkK3dUq2GGRn7VDMgRvKzJPcZ9rW6hj_U9xn2tbqGP9Zi9VW6hT1MY1o6erXrUi9bU5LmtNMfIQTPvlLl5FWDP&quot;); background-position: 0px -42px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                <div class="logoutbar">
+                    <div class="logbar">
+                        <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yO/r/5hWWM5G_3AH.png?_nc_eui2=AeEkK3dUq2GGRn7VDMgRvKzJPcZ9rW6hj_U9xn2tbqGP9Zi9VW6hT1MY1o6erXrUi9bU5LmtNMfIQTPvlLl5FWDP&quot;); background-position: 0px -42px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                    </div>
+                    <p>Help & Support</p>
                 </div>
-                <p>Help & Support</p>
-            </div>
-            <div class="logoutbar">
-                <div class="logbar">
-                    <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/kR05M3TZffj.png?_nc_eui2=AeEHUdurRN1fqR_nTDhhuGf9h04TZyNcGjmHThNnI1waOU_lruyPWQOc9H5a8u61ryJwsuatQiDgRD7JTMrubc0H&quot;); background-position: 0px -573px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                <div class="logoutbar">
+                    <div class="logbar">
+                        <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yF/r/kR05M3TZffj.png?_nc_eui2=AeEHUdurRN1fqR_nTDhhuGf9h04TZyNcGjmHThNnI1waOU_lruyPWQOc9H5a8u61ryJwsuatQiDgRD7JTMrubc0H&quot;); background-position: 0px -573px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                    </div>
+                    <p>Display & Accessiblity</p>
                 </div>
-                <p>Display & Accessiblity</p>
-            </div>
-            <div class="logoutbar">
-                <div class="logbar">
-                    <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/QnBF2xVFFiX.png?_nc_eui2=AeENxmeANpWqYx99gZNhKsd8_qJ7DKUFU4b-onsMpQVThn5-KBKBVuPWgQVxYkjhhYFXADnhzcv0E795KZnL-wwb&quot;); background-position: 0px -46px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                <div class="logoutbar">
+                    <div class="logbar">
+                        <span><i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yi/r/QnBF2xVFFiX.png?_nc_eui2=AeENxmeANpWqYx99gZNhKsd8_qJ7DKUFU4b-onsMpQVThn5-KBKBVuPWgQVxYkjhhYFXADnhzcv0E795KZnL-wwb&quot;); background-position: 0px -46px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i></span>
+                    </div>
+                    <p><a href="logout">Logout</a></p>
                 </div>
-                <p><a href="logout">Logout</a></p>
+                <p style="font-size: small;">Privacy  · Terms  · Advertising  · Ad Choices   · Cookies  ·   · facebook © 2022</p>
             </div>
-            <p style="font-size: small;">Privacy  · Terms  · Advertising  · Ad Choices   · Cookies  ·   · facebook © 2022</p>
         </div>
-      </div>
+        </div>
     </div>
-  </div>
-{{-- Log out Model Ends --}}
     {{-- Logout Button Modal Ends--}}
  
 
@@ -244,7 +242,7 @@
                         <button class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
                     </div>                    
                     <div>
-                        <img src="/images/uploads/{{$pdata->profilePic}}" alt="">
+                        <img src="/images/uploads/profile-picture/default.jpg" alt="">
                     </div>
                 </div>
                 <br>
@@ -254,7 +252,7 @@
                         <a href="#">Edit</a>
                     </div>
                     <div>
-                        <img src="/images/uploads/{{$pdata->coverPic}}" alt="">
+                        <img src="/images/uploads/cover-photo/cvdefault.jpg" alt="">
                     </div>
                 </div>
                 <br>
