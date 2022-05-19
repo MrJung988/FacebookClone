@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\CoverController;
 
 
 // Route::get('/',[CustomAuthController::class, 'logReg'])->name('logReg');
@@ -17,3 +18,5 @@ Route::get('/logout', [CustomAuthController::class, 'logout']);
 
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('isLoggedIn')->name('profile');
 Route::post('/profile', [ProfileController::class, 'profileUpdate'])->middleware('isLoggedIn')->name('profileUpdate');
+
+Route::post('/cover', [CoverController::class, 'coverPicUpdate'])->middleware('isLoggedIn')->name('coverPicUpdate');

@@ -21,10 +21,8 @@ class CustomAuthController extends Controller
 
 
     public function registerUser(Request $request){
-
         // var_dump(request()->all());
         // return request()->all();
-
         $attributes = $request->validate([
             'fname' => 'required',
             'lname' => 'required',
@@ -49,16 +47,16 @@ class CustomAuthController extends Controller
     }
 
     public function loginUser(Request $request){
-        $request->validate([
+        $attributes = $request->validate([
             'mobOrMail' => 'required | min:10 | max:25',
             'password' => 'required | min:6 | max:12',
         ]);
 
         // dd('hl');
-        if (Auth::attempt(['mobOrMail' => $request->mobOrMail, 'password' => $request->password])) {
+        if (Auth::attempt($attributes)) {
             return redirect()->route('authCheck')->with('success','You have registered successfully');
         }else{
-            return back()->with('fail', 'The provided information do not match our records.');
+            return back()->with('fail', 'You have to enter valid details.');
         }
     }
    

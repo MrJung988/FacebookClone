@@ -37,7 +37,7 @@
         <div class="header-right">
             
             <div class="header-info">
-                <a href="profile" style="display: flex; text-decoration: none; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                <a href="profile" style="display: flex; text-decoration: none; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                 <h4 class="profile-name">{{auth()->user()->fname}}</h4></a>
             </div>
             
@@ -61,10 +61,10 @@
     {{-- Body Begins --}}
     <div class="container">
         <div class="upperpart">
-            <div class="cv-profile">
-                <img data-imgperflogname="profileCoverPhoto" alt="Cover Photo" class="i09qtzwb rq0escxv n7fi1qx3 datstx6m pmk7jnqg j9ispegn kr520xx4 k4urcfbm" referrerpolicy="origin-when-cross-origin" src="images/uploads/cover-photo/cvdefault.jpg">
+            <div class="cv-profile" id="coverPhotoPreview">
+                <img data-imgperflogname="profileCoverPhoto" alt="Cover Photo" class="i09qtzwb rq0escxv n7fi1qx3 datstx6m pmk7jnqg j9ispegn kr520xx4 k4urcfbm" referrerpolicy="origin-when-cross-origin" src="images/uploads/cover-photo/{{auth()->user()->coverPic}}">
             </div>
-            <div class="edit-pp-button">
+            <div class="edit-pp-button" data-bs-toggle="modal" data-bs-target="#coverPicUpdate">
                 <div class="edit-pp-camera">
                     <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y1/r/-rFArur6XCS.png&quot;); background-position: 0px -856px; background-size: auto; width: 16px; height: 16px; background-repeat: no-repeat; display: inline-block; margin-bottom: -3px;"></i>
                 </div>
@@ -76,7 +76,7 @@
         <div class="lowerpart">
 
             <div class="profile-1">
-                <img src="/images/uploads/profile-picture/default.jpg" alt="ProfilePic">   {{--user-profile--}}
+                <img src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="ProfilePic">   {{--user-profile--}}
                 <div class="camera-icon">
                     <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" data-bs-toggle="modal" data-bs-target="#ppupdate" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yo/r/0Y-lDUkZv4T.png?_nc_eui2=AeGBWnstU8tcrGN2vRgqfezGWw5hm4Pt1W1bDmGbg-3VbVeozteS_gj76CPeJsyObD6rSmXX9TAFfFnlsbAVX_Vm&quot;); background-position: 0px -364px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
                 </div>
@@ -168,6 +168,40 @@
     {{-- Profile Picture Update Model Ends--}}
 
 
+    {{-- Cover Photo Update Model Begins --}}
+        <div class="modal fade coverPhoto" id="coverPicUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">                    
+                    <div class="modal-body">
+                        <form action="{{route('coverPicUpdate')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="cv-photo">
+                                <div class="item item1">
+                                    <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yw/r/DZyoGXlN55Y.png&quot;); background-position: 0px -315px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
+                                    <label for="selectCoverPhoto">Select Photo</label>
+                                    <input type="file" name="coverPhoto" id="selectCoverPhoto" style="display: none;">
+                                </div>
+                                <div class="item item2">
+                                    <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yA/r/ouNKP3wX_oB.png&quot;); background-position: 0px -83px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
+                                    <button type="submit">Upload Photo</button>
+                                </div>
+                                <div class="item item3">
+                                    <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yh/r/LiwH8TAiph4.png&quot;); background-position: 0px -576px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
+                                    <p>Reposition</p>
+                                </div><hr>
+                                <div class="item item4">
+                                    <i data-visualcompletion="css-img" class="hu5pjgll lzf7d6o1" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yJ/r/F9JDJ8l9kNG.png&quot;); background-position: 0px -904px; background-size: auto; width: 20px; height: 20px; background-repeat: no-repeat; display: inline-block;"></i>
+                                    <p>Remove</p>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{-- Cover Photo Update Model Ends --}}
+
+
 
     {{-- Logout Button Modal Begins--}}
     <div class="modal fade logout" id="logoutButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -175,7 +209,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <div class="upper-post logoutbar">
-                        <img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                        <img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                         <div class="logbar">
                             <h5>{{auth()->user()->fname}} {{auth()->user()->lname}}</h5>
                             <p style="margin: 0;">See your profile</p>
@@ -242,7 +276,7 @@
                         <button class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
                     </div>                    
                     <div>
-                        <img src="/images/uploads/profile-picture/default.jpg" alt="">
+                        <img src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                     </div>
                 </div>
                 <br>
@@ -252,7 +286,7 @@
                         <a href="#">Edit</a>
                     </div>
                     <div>
-                        <img src="/images/uploads/cover-photo/cvdefault.jpg" alt="">
+                        <img src="/images/uploads/cover-photo/{{auth()->user()->coverPic}}" alt="">
                     </div>
                 </div>
                 <br>
@@ -359,7 +393,7 @@
 
 
 
-    {{-- Preview image js begins--}}
+    {{-- Preview image of profile picture js begins--}}
     <script type="text/javascript">
         
         function previewImages() {
@@ -393,7 +427,40 @@
 
 
     </script>
-    {{-- Preview image js end--}}
+    {{-- Preview image of profile picture js end--}}
+
+    {{-- Preview image of cover picture js begins --}}
+    <script>
+        function previewImages() {
+            var preview = document.querySelector('#coverPhotoPreview');
+        
+        if (this.files) {
+        [].forEach.call(this.files, readAndPreview);
+        }
+        
+        function readAndPreview(file) {
+        
+        // Make sure `file.name` matches our extensions criteria
+        if (!/\.(jpe?g|png|gif)$/i.test(file.name)) {
+            return alert(file.name + " is not an image");
+        } // else...
+        
+        var reader = new FileReader();
+        
+        reader.addEventListener("load", function() {
+            var image = new Image();
+            image.height = 100;
+            image.title  = file.name;
+            image.src    = this.result;
+            preview.appendChild(image);
+        });
+        
+        reader.readAsDataURL(file);
+        }
+        }
+        document.querySelector('#selectCoverPhoto').addEventListener("change", previewImages);
+    </script>
+    {{-- Preview image of cover picture js ends --}}
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>

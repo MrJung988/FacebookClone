@@ -6,6 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
+
 class AuthCheck
 {
     /**
@@ -19,7 +20,7 @@ class AuthCheck
     {
         if(!Auth::User())
         {
-            return redirect()->route('logReg');
+            return redirect()->route('authCheck');
         }
         return $next($request);
     }

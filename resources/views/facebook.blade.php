@@ -36,7 +36,7 @@
             <div class="header-right">
                 
                 <div class="header-info">
-                    <a href="profile" style="display: flex; text-decoration: none; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                    <a href="profile" style="display: flex; text-decoration: none; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                     <h4 class="profile-name">{{auth()->user()->fname}}</h4></a>
                 </div>
                 
@@ -63,8 +63,8 @@
             {{-- SIDEBAR BEGINS --}}
             <div class="sidebar">
                 <div class="sidebarRow">
-                    <img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
-                    <h4>{{auth()->user()->fname}} {{auth()->user()->lname}}</h4>
+                    <a href="profile" style="text-decoration: none; display:flex; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
+                    <h4>{{auth()->user()->fname}} {{auth()->user()->lname}}</h4></a>
                 </div>
                 <div class="sidebarRow">
                     <span class="material-icons"><img class="hu5pjgll bixrwtb6" src="https://static.xx.fbcdn.net/rsrc.php/v3/y8/r/S0U5ECzYUSu.png?_nc_eui2=AeG0W5UR97-MUjMDkaLexexcqfpKmA4GtxSp-kqYDga3FGQbxd3HLn5loIF6KbZLVH-Q0bx6mgiMTF33dq1cx39z" style="height:36px;width:36px" alt=""></span>
@@ -101,7 +101,7 @@
             <div class="feed">
                 <div class="storyReel">
                     {{-- STORY BEGINS --}}
-                    <div style="background-image: url('/images/uploads/profile-picture/default.jpg')"  class="story create-story">
+                    <div style="background-image: url('/images/uploads/profile-picture/{{auth()->user()->profilePic}}')"  class="story create-story">
                         {{-- <img class="user-profile story-profile create-story" src="/images/uploads/default.jpg" alt=""> --}}
                         <h4 class="">Create Story</h4>
                     </div>
@@ -127,7 +127,7 @@
                 {{-- MESSAGE SENDER BEGINS --}}
                 <div class="messageSender">
                     <div class="messageSender-top">
-                        <img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                        <img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                         <form>
                             {{-- <input type="text" class="messageSender-input" placeholder="What's on you mind?"> --}}
                             <button type="button" class="messageSender-input create-post" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -278,9 +278,9 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <div class="upper-post logoutbar">
-                            <img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                            <img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                             <div class="logbar">
-                                <h5>{{auth()->user()->fname}} {{auth()->user()->lname}}</h5>
+                                <a href="profile" style="text-decoration: none; color:black;"><h5>{{auth()->user()->fname}} {{auth()->user()->lname}}</h5></a>
                                 <p style="margin: 0;">See your profile</p>
                             </div>
                         </div>
@@ -340,7 +340,7 @@
                 <form action="" method="POST" id="form" enctype="multipart/form-data">
                     <div class="create-post">
                         <div class="upper-post">
-                            <img class="user-profile" src="/images/uploads/profile-picture/default.jpg" alt="">
+                            <img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                             <div class="name-post">
                                 <h5>{{auth()->user()->fname}} {{auth()->user()->lname}}</h5>
                                 <button disabled><i class="fa-solid fa-user-group"></i> Friends <i class="fa-solid fa-caret-down"></i></button>

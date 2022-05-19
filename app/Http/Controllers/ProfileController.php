@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Auth;
-use Image;
+use Intervention\Image\Facades\Image;
 
 class ProfileController extends Controller
 {
@@ -28,17 +28,17 @@ class ProfileController extends Controller
         if($request-> hasFile('profilePic')){
             $profilePic = $request-> file('profilePic');
             $filename = time().'.'.$profilePic->getClientOriginalExtension();
-            Image::make($profilePic)->resize(300, 300)->save(public_path('images/uploads/profile-picture/'.$filename));
+            Image::make($profilePic)->save(public_path('images/uploads/profile-picture/'.$filename));
             
             // @dd($filename);
-            // $users = Auth::user();
-            $users = User::where('id', Auth::User()->id)->first();
-            $users-> profilePic = $filename;
-            $users-> save();
+            $user = Auth::user();
+            // $users = User::where('id', Auth::User()->id)->first();
+            $user-> profilePic = $filename;
+            $user-> save();
         }
             // dd($user);
 
-        return view('profile', ['pdata'=>$users]);
+        return view('profile', ['user'=> Auth::user()]);
 
 
 

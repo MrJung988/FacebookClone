@@ -35,7 +35,7 @@
                 <div class="input-container">
                     <input type="text" placeholder="Email or phone number" class="form-input form-input--email" name="mobOrMail" value="{{old('mobOrMail')}}">
                 </div>
-                <span class="text-danger">@error('mobOrMail') {{$message}} @enderror</span>
+                <span class="text-danger small">@error('mobOrMail') {{$message}} @enderror</span>
 
                 <div class="input-container input-container--password">
                     <input type="password" placeholder="Password" class="form-input form-input--password"  name="password">
@@ -44,7 +44,7 @@
                         <img src="images/eye.png" class="password-eye eye">
                     </div> 
                 </div>
-                <span class="text-danger">@error('password') {{$message}} @enderror</span>
+                <span class="text-danger small">@error('password') {{$message}} @enderror</span>
                 <button class="form-log-in-btn">Log In</button>
                 <a href="#" class="form-forgot-password">Forgot Password?</a>
 
@@ -81,21 +81,21 @@
                         <div class="divider-signup"></div>
                         <div class="lowerpart">
                             <div class="row">
-                                <div class="col-sm-6">
+                                <div class="col-md-6">
                                     <input type="text" name="fname" id="fname" placeholder="First name" class="form-control form-input-signup" value="{{old('fname')}}">
-                                    <span class="text-danger error small mt-0">@error('fname') {{$message}} @enderror</span>
+                                    <span class="text-danger small">@error('fname') {{$message}} @enderror</span>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="col-md-6">
                                     <input type="text" name="lname" id="lname" placeholder="Last name" class="form-control form-input-signup" value="{{old('lname')}}">
-                                    <span class="text-danger">@error('lname') {{$message}} @enderror</span>
+                                    <span class="text-danger small">@error('lname') {{$message}} @enderror</span>
                                 </div>
-                                <div class="col-sm-12">
+                                <div class="col-md-12">
                                     <input type="text" name="mobOrMail" id="mobile" class="form-control form-input-signup" placeholder="Mobile number or email" value="{{old('mobOrMail')}}">
-                                    <span class="text-danger">@error('mobOrMail') {{$message}} @enderror</span>
+                                    <span class="text-danger small">@error('mobOrMail') {{$message}} @enderror</span>
                                 </div>
-                                <div class="col-sm-12">
+                                <div class="col-md-12">
                                     <input type="password" name="password" id="password" class="form-control form-input-signup" placeholder="New password">
-                                    <span class="text-danger">@error('password') {{$message}} @enderror</span>
+                                    <span class="text-danger small">@error('password') {{$message}} @enderror</span>
                                 </div>  
                            
                   
@@ -111,7 +111,7 @@
                                                     <option value="{{$date[$i]}}">{{$date[$i]}}</option>                                                                
                                                 @endfor                                           
                                             </select>
-                                            <span class="text-danger">@error('month') {{$message}} @enderror</span>
+                                            <span class="text-danger small">@error('month') {{$message}} @enderror</span>
                                     </div>
 
                                     <div class="col-md-3 col-6">
@@ -121,7 +121,7 @@
                                                 <option value="{{$i}}">{{$i}}</option>
                                             @endfor
                                         </select>
-                                        <span class="text-danger">@error('day') {{$message}} @enderror</span>
+                                        <span class="text-danger small">@error('day') {{$message}} @enderror</span>
                                     </div>
 
                                     <div class="col-md-3 col-6">
@@ -131,7 +131,7 @@
                                                 <option value="{{$i}}">{{$i}}</option>
                                             @endfor
                                         </select>
-                                        <span class="text-danger">@error('year') {{$message}} @enderror</span>
+                                        <span class="text-danger small">@error('year') {{$message}} @enderror</span>
                                     </div>
                                     
                                     <p class="contents">Gender <i class="fa-solid fa-circle-question question-mark" title="Click for the more information"></i></p>
@@ -144,10 +144,10 @@
                                         <input type="radio" id="male" name="gender" class="radio" value="male">
                                     </div>
                                     <div class=" radio-div form-input-gender">
-                                        <label for="custom" class="gender-text">Other</label>
-                                        <input type="radio" id="custom" name="gender" class="radio" value="other">
+                                        <label for="other" class="gender-text">Other</label>
+                                        <input type="radio" id="other" name="gender" class="radio" value="other">
                                     </div>
-                                    <span class="text-danger">@error('gender') {{$message}} @enderror</span> 
+                                    <span class="text-danger small">@error('gender') {{$message}} @enderror</span> 
                                 </div>
                                 <br>
                                 <p class="signup-policy">By clicking Sign Up, you agree to our <span class="policy-span">Terms, Data Policy</span> and <span class="policy-span">Cookies Policy</span>. You may receive SMS Notifications from us and can opt out any time.</p>

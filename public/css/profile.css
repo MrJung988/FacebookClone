@@ -42,9 +42,12 @@
 .profile-1 img{
     border-radius: 50%;
     width: 160px;
+    height: 160px;
     margin-top: -40px;
     margin-left: -20px;
     border: 5px solid white;    
+    object-fit: cover;
+    cursor: pointer;
 }
 
 .profile-1{
@@ -71,6 +74,14 @@
     border-radius: 8px;    
     width: 85%;
     margin-left: 1%;
+    margin-top: -4px;
+    border: 1px solid black;
+    object-fit: cover;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    z-index: -1;
 }
 
 .profile-div{
@@ -78,8 +89,12 @@
 }
 
 .cv-profile img{
+    height: 100%;
     width: 100%;
     object-fit: cover;
+    z-index: 2000;
+    position: absolute;
+    cursor: pointer;
 }
 
 .profile-2{
@@ -146,15 +161,11 @@ margin-bottom: 0;
     align-items: flex-end;
 }
 
-
-
-
 .container{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 
 
 .upperpart{
@@ -210,9 +221,6 @@ margin-bottom: 0;
 
 
 
-
-
-
 /* Profile Pic Update Begins*/
 .upload-pp label{
     background-color: var(--green2);
@@ -253,11 +261,69 @@ margin-bottom: 0;
     color: white;
     font-weight: bold;
 }
-
-
 /* Profile Pic Update Ends*/
 
 
+
+/* Cover Photo Modal Begins */
+.coverPhoto{
+    margin-top: 28%;
+    margin-left: 61%;
+    width: 22%;
+}
+
+.cv-photo .item i{
+    margin:0 16px 0 10px;
+}
+
+.cv-photo .item{
+    display: flex;
+    margin: 0;
+    margin-left: 10px;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.cv-photo .item:hover{
+    background-color: var(--gray3);
+    border-radius: 5px;
+}
+
+.cv-photo .item p{
+    font-weight: bold;
+    margin: -4px;
+    color: black;
+}
+
+.cv-photo .item button{
+    font-weight: bold;
+    margin: -4px;
+    border: none;
+    background-color: transparent;
+}
+
+.cv-photo .item label{
+    font-weight: bold;
+    margin: -4px;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    color: black;
+}
+
+.cv-photo .item button:hover{
+    background-color: var(--gray3);
+}
+
+.cv-photo .item3{
+    margin-bottom: -10px;
+}
+
+.cv-photo .item4{
+    margin-top: -10px;
+    margin-bottom: -10px;
+}
+/* Cover Photo Modal Ends */
 
 
 
