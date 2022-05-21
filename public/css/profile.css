@@ -71,11 +71,10 @@
 .cv-profile{
     height: 370px;
     overflow: hidden;
-    border-radius: 8px;    
+    border-bottom-right-radius: 8px;   
+    border-bottom-left-radius: 8px;   
     width: 85%;
-    margin-left: 1%;
-    margin-top: -4px;
-    border: 1px solid black;
+    border: 1px solid var(--gray1);
     object-fit: cover;
     position: relative;
     overflow: hidden;
@@ -98,18 +97,21 @@
 }
 
 .profile-2{
-padding: 15px;
-padding-bottom: 0;
-margin-bottom: 0;
+    padding: 15px;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .profile-2 h3{
     font-weight: bold;
     color: black;
+    margin: 1px;
 }
 
 .profile-2 p{
     color: var(--gray5);
+    margin: 0;
+    font-weight: 600;
 }
 
 .profile-3{
@@ -154,7 +156,6 @@ margin-bottom: 0;
 .profile4-div .pen{
     margin: 0 5px;
 }
-
 
 .profile-4{
     display: flex;
@@ -344,10 +345,12 @@ a{
     margin-left: 66%;
 }
 
-.modal-profile img{
-    width: 30%;
+.modal-profile .modal-image img{
+    height: 180px;
+    width: 180px;
     border-radius: 50%;
     margin-left: 30%;
+    object-fit: cover;
 }
 
 .cover-header{

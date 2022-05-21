@@ -68,7 +68,7 @@ class CustomAuthController extends Controller
  
         $request->session()->regenerateToken();
         
-        return redirect('/');
+        return redirect(route('authCheck'));
         // return redirect('/')->with('success', 'You're logged out!);
     }
 }

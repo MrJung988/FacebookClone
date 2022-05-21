@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{auth()->user()->fname}} | Facebook</title>
     <script src="https://kit.fontawesome.com/bc607b3e78.js" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/profile.css') }}" rel="stylesheet">
 </head>
@@ -14,7 +15,7 @@
     {{-- HEADER BEGINS --}}
     <div class="header">
         <div class="header-left">
-            @include('fblogo')                
+            @include('fblogo')              
             <div class="header-input">
                 <span class="material-icons"><i class="fa-solid fa-magnifying-glass"></i></span>
                 <input type="text" placeholder="Search Facebook">
@@ -86,7 +87,7 @@
                     <h3>{{auth()->user()->fname}} {{auth()->user()->lname}}</h3>
                 </div>
                 <div class="cv-frn">
-                    <p>410 friends</p>
+                    <p>421 friends</p>
                 </div>
                 <div class="friends">
                     <div class="frn frn1">
@@ -275,7 +276,7 @@
                         <h5>Profie Picture</h5>
                         <button class="" data-bs-toggle="modal" data-bs-target="#exampleModal2">Edit</button>
                     </div>                    
-                    <div>
+                    <div class="modal-image">
                         <img src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
                     </div>
                 </div>

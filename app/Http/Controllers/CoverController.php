@@ -18,12 +18,12 @@ class CoverController extends Controller
 
             // dd($filename);
             $user = Auth::user();
-
+            
             $user-> coverPic = $filename;
             $user-> save();
         }
         // dd('hello');
 
-        return view('profile', ['user'=> Auth::user()]);
+        return back();
     }
 }

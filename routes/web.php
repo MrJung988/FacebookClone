@@ -14,9 +14,10 @@ Route::post('/registerUser',[CustomAuthController::class, 'registerUser'])->midd
 
 Route::post('/loginUser', [CustomAuthController::class, 'loginUser'])->middleware('guest')->name('login-user');
 
-Route::get('/logout', [CustomAuthController::class, 'logout']);
+Route::get('/logout', [CustomAuthController::class, 'logout'])->middleware('isLoggedIn');
 
 Route::get('/profile', [ProfileController::class, 'profile'])->middleware('isLoggedIn')->name('profile');
 Route::post('/profile', [ProfileController::class, 'profileUpdate'])->middleware('isLoggedIn')->name('profileUpdate');
 
-Route::post('/cover', [CoverController::class, 'coverPicUpdate'])->middleware('isLoggedIn')->name('coverPicUpdate');
+Route::post('/profile/cover', [CoverController::class, 'coverPicUpdate'])->middleware('isLoggedIn')->name('coverPicUpdate');
+

@@ -20,7 +20,7 @@ class AuthCheck
     {
         if(!Auth::User())
         {
-            return redirect()->route('authCheck');
+            return redirect(route('authCheck'))->with('fail', 'You have to login first.');
         }
         return $next($request);
     }
