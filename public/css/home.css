@@ -28,8 +28,9 @@
     width: 35px;
     height: 35px;
     object-fit: cover;
+    cursor: pointer;
 }
-
+/* Navbar Begins */
 .header{
     width: 100%;
     padding: 5px 15px;
@@ -143,15 +144,15 @@
     align-items: center;
     justify-content: center;
 }
-
 /* Navbar Ends */
+
+
 
 /* Sidebar Begins */
 
 .sidebar{
     position: fixed;
 }
-
 
 .sidebarRow{
     /* flex-basis: 25%; */
@@ -180,6 +181,8 @@
     color: var(--blue3);
 }
 /* Sidebar Ends */
+
+
 
 /* Stories Begins */
 .story{
@@ -573,6 +576,7 @@ body{
 
 .post-profile{
     margin-right: 10px;
+    cursor: pointer;
 }
 
 .post-topInfo p{
@@ -614,6 +618,16 @@ body{
     margin-bottom: -14px;
     margin-left: 15px;
     cursor: pointer;
+}
+
+.emoji .like img{
+    margin-right: -3px;
+    z-index: 1;
+}
+
+.emoji .love img{
+    border: 2px solid white;
+    border-radius: 50%;
 }
 
 .commentShare{
@@ -821,7 +835,7 @@ body{
 @media (min-width: 769px) and (max-width: 1440px){
     .feed{
         width: 50%;
-        padding: 10px 50px;
+        padding: 10px 80px;
     }
 }
 

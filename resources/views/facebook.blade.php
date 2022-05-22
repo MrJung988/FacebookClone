@@ -7,8 +7,9 @@
     <title>Facebook</title>
     <script src="https://kit.fontawesome.com/bc607b3e78.js" crossorigin="anonymous"></script>
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet">
+</head>
 
     <body>
         {{-- HEADER BEGINS --}}
@@ -107,21 +108,21 @@
                         <h4 class="">Create Story</h4>
                         <svg fill="currentColor" viewBox="0 0 20 20" width="2.5em" height="2.5em" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 ljqsnud1 jnigpg78 odw8uiq3 __web-inspector-hide-shortcut__"><g fill-rule="evenodd" transform="translate(-446 -350)"><g fill-rule="nonzero"><path d="M95 201.5h13a1 1 0 1 0 0-2H95a1 1 0 1 0 0 2z" transform="translate(354.5 159.5)"></path><path d="M102.5 207v-13a1 1 0 1 0-2 0v13a1 1 0 1 0 2 0z" transform="translate(354.5 159.5)"></path></g></g></svg>
                     </div>
-                    <div style="background-image: url('https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/279278588_517377436755225_5341282755031214748_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=5b7eaf&_nc_eui2=AeGRV6MNyFbhu_cladJjJVGAmTVWDjUQhK2ZNVYONRCErXGKQjzmaVqCh0xalwQTHDITFFNuVgtgevx2HPSZo97Q&_nc_ohc=0-IEtfydGogAX8NmKYK&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT_XI1lT3DnJXAH1yUKlZfHaH5hF2zCB98FNV3qJGZqy7A&oe=6271CC19')"  class="story">
-                        <img class="user-profile story-profile" src="https://scontent.fktm1-2.fna.fbcdn.net/v/t39.30808-6/269600665_456575882835381_3686843976647157600_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=174925&_nc_eui2=AeF6QuV-8318wmfJPuGni3uVuWSCuFVl7dK5ZIK4VWXt0i_fUKqBQRZJHN9PRuNsvYhbzkdQMjR25BvGmbBGdQaj&_nc_ohc=ubikt0KUQ0UAX8AhLgj&_nc_ht=scontent.fktm1-2.fna&oh=00_AT8A4hM4jNVaJ5OC3WBta7zBD8H7BEjnGQi7dV1di1UxQw&oe=62764BB6" alt="">
-                        <h4>Ram</h4>
+                    <div style="background-image: url('/images/uploads/friend-list/2.jpg')"  class="story">
+                        <img class="user-profile story-profile" src="/images/uploads/friend-list/2.jpg" alt="">
+                        <h4>MrJung</h4>
                     </div>
-                    <div style="background-image: url('https://scontent.fktm1-2.fna.fbcdn.net/v/t39.30808-6/266762798_434401251719511_2478015891928289109_n.jpg?_nc_cat=107&ccb=1-6&_nc_sid=0debeb&_nc_ohc=NgrCP83CAOUAX-eiPmB&_nc_oc=AQl8JhsP6-IyaR51d4U0htto1mfWtlslKzYXeYxkWfwA5LNjCVJ_bh_eLO_t9KkJLNs&_nc_ht=scontent.fktm1-2.fna&oh=00_AT8BEdQJoN1aByqXqubR4r0-p0s2FamrNyCRspkqqNAONw&oe=627E8DE3')"  class="story">
-                        <img class="user-profile story-profile" src="https://scontent.fktm1-2.fna.fbcdn.net/v/t39.30808-6/269600665_456575882835381_3686843976647157600_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=174925&_nc_eui2=AeF6QuV-8318wmfJPuGni3uVuWSCuFVl7dK5ZIK4VWXt0i_fUKqBQRZJHN9PRuNsvYhbzkdQMjR25BvGmbBGdQaj&_nc_ohc=ubikt0KUQ0UAX8AhLgj&_nc_ht=scontent.fktm1-2.fna&oh=00_AT8A4hM4jNVaJ5OC3WBta7zBD8H7BEjnGQi7dV1di1UxQw&oe=62764BB6" alt="">
-                        <h4>Shyam</h4>
+                    <div style="background-image: url('/images/uploads/friend-list/5.jpg')"  class="story">
+                        <img class="user-profile story-profile" src="/images/uploads/friend-list/5.jpg" alt="">
+                        <h4>Anup</h4>
                     </div>
-                    <div style="background-image: url('https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/279370614_516723860153916_3849930853374008291_n.jpg?_nc_cat=103&ccb=1-5&_nc_sid=5b7eaf&_nc_eui2=AeHdC6YjsWfkP8wFbeRElw4w5XINpdu6Ydnlcg2l27ph2X3iU6eztfwWUkT8b-9KJbO0OUAR0SOJLN3SokWzLonE&_nc_ohc=fO2HyQU8lLwAX_wRTX4&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT9zO-RUYJsTNEl6zy58avHUx-bgxV_Y1AJDiE4J2tLOVg&oe=6270FE51')"  class="story">
-                        <img class="user-profile story-profile" src="https://scontent.fktm1-2.fna.fbcdn.net/v/t39.30808-6/269600665_456575882835381_3686843976647157600_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=174925&_nc_eui2=AeF6QuV-8318wmfJPuGni3uVuWSCuFVl7dK5ZIK4VWXt0i_fUKqBQRZJHN9PRuNsvYhbzkdQMjR25BvGmbBGdQaj&_nc_ohc=ubikt0KUQ0UAX8AhLgj&_nc_ht=scontent.fktm1-2.fna&oh=00_AT8A4hM4jNVaJ5OC3WBta7zBD8H7BEjnGQi7dV1di1UxQw&oe=62764BB6" alt="">
-                        <h4>Hari</h4>
+                    <div style="background-image: url('/images/uploads/friend-list/4.jpg')"  class="story">
+                        <img class="user-profile story-profile" src="/images/uploads/friend-list/4.jpg" alt="">
+                        <h4>Ronish</h4>
                     </div>
-                    <div style="background-image: url('https://scontent.fpkr1-1.fna.fbcdn.net/v/t39.30808-6/263853056_435259251633711_1894524251502781093_n.jpg?_nc_cat=105&ccb=1-5&_nc_sid=174925&_nc_eui2=AeGGhlXArg7POpvXJlOF233aK87htUP_iykrzuG1Q_-LKSfAXZ-XzoCKX0Us-uL2nTx52kULW02TYqKS9nCXOD3g&_nc_ohc=EgXRsMxDXhIAX_vBo-K&_nc_ht=scontent.fpkr1-1.fna&oh=00_AT8jQ-LZcmdHPTh-2amXXaznAxABVG-rnbC4PZ8FKLOtIA&oe=6272791B')"  class="story">
-                        <img class="user-profile story-profile" src="https://scontent.fktm1-2.fna.fbcdn.net/v/t39.30808-6/269600665_456575882835381_3686843976647157600_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=174925&_nc_eui2=AeF6QuV-8318wmfJPuGni3uVuWSCuFVl7dK5ZIK4VWXt0i_fUKqBQRZJHN9PRuNsvYhbzkdQMjR25BvGmbBGdQaj&_nc_ohc=ubikt0KUQ0UAX8AhLgj&_nc_ht=scontent.fktm1-2.fna&oh=00_AT8A4hM4jNVaJ5OC3WBta7zBD8H7BEjnGQi7dV1di1UxQw&oe=62764BB6" alt="">
-                        <h4>Srijan</h4>
+                    <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
+                        <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
+                        <h4>Samir</h4>
                     </div>                    
                     {{-- STORY ENDS --}}
                 </div>
@@ -192,31 +193,33 @@
 
                 
                 {{-- POST SECTION BEGINS --}}
+                
+                @foreach ($showPost as $post)                    
                 <div class="post">
                     <div class="post-top">
-                        <img class="user-profile post-profile" src="/images/uploads/friend-list/6.jpg" alt="">
+                        <img class="user-profile post-profile" src="/images/uploads/profile-picture/{{$post->user->profilePic}}" alt="">
                         <div class="post-topInfo">
-                            <h5>Samir Karki</h5>
-                            <p>28 April at 8:30 PM.</p>
+                            <h5>{{$post->user->fname}} {{$post->user->lname}}</h5>
+                            <p>{{$post->created_at}}</p>
                         </div>
                     </div>
 
                     <div class="post-bottom">
-                        <p>Caption Reloading.......</p>
+                        <p>{{$post->caption}}</p>
                     </div>
     
                     <div class="post-image">
-                        <img class="post-profile" src="/images/uploads/friend-list/6.jpg" alt="">
+                        <img class="post-profile" src="/images/uploads/PostImage/{{$post->postImage}}" alt="">
                     </div>
-
+                    
 
                     <div class="likeCount">
                         <div class="emoji">
-                            <div class="like">
+                            <div class="like" title="like">
                                 <img class="j1lvzwm4" height="18" role="presentation" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%2318AFFF'/%3e%3cstop offset='100%25' stop-color='%230062DF'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0 0 0 0 0 0.299356041 0 0 0 0 0.681187726 0 0 0 0.3495684 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 00-8 8 8 8 0 1016 0 8 8 0 00-8-8z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M12.162 7.338c.176.123.338.245.338.674 0 .43-.229.604-.474.725a.73.73 0 01.089.546c-.077.344-.392.611-.672.69.121.194.159.385.015.62-.185.295-.346.407-1.058.407H7.5c-.988 0-1.5-.546-1.5-1V7.665c0-1.23 1.467-2.275 1.467-3.13L7.361 3.47c-.005-.065.008-.224.058-.27.08-.079.301-.2.635-.2.218 0 .363.041.534.123.581.277.732.978.732 1.542 0 .271-.414 1.083-.47 1.364 0 0 .867-.192 1.879-.199 1.061-.006 1.749.19 1.749.842 0 .261-.219.523-.316.666zM3.6 7h.8a.6.6 0 01.6.6v3.8a.6.6 0 01-.6.6h-.8a.6.6 0 01-.6-.6V7.6a.6.6 0 01.6-.6z'/%3e%3c/g%3e%3c/svg%3e" width="18">
                             </div>
-                            <div class="love">
-                                <img class="j1lvzwm4" height="18" role="presentation" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%23FF6680'/%3e%3cstop offset='100%25' stop-color='%23E61739'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0.710144928 0 0 0 0 0 0 0 0 0 0.117780134 0 0 0 0.349786932 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 100 16A8 8 0 008 0z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M10.473 4C8.275 4 8 5.824 8 5.824S7.726 4 5.528 4c-2.114 0-2.73 2.222-2.472 3.41C3.736 10.55 8 12.75 8 12.75s4.265-2.2 4.945-5.34c.257-1.188-.36-3.41-2.472-3.41'/%3e%3c/g%3e%3c/svg%3e" width="18">
+                            <div class="love" title="love react">
+                                <img class="j1lvzwm4" height="22" role="presentation" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%23FF6680'/%3e%3cstop offset='100%25' stop-color='%23E61739'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0.710144928 0 0 0 0 0 0 0 0 0 0.117780134 0 0 0 0.349786932 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 100 16A8 8 0 008 0z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M10.473 4C8.275 4 8 5.824 8 5.824S7.726 4 5.528 4c-2.114 0-2.73 2.222-2.472 3.41C3.736 10.55 8 12.75 8 12.75s4.265-2.2 4.945-5.34c.257-1.188-.36-3.41-2.472-3.41'/%3e%3c/g%3e%3c/svg%3e" width="22">
                             </div>&nbsp;
                             <p>101K</p>
                         </div>
@@ -229,7 +232,7 @@
                             </div>
                         </div>
                     </div>
-
+                    
 
     
                     <div class="post-options">
@@ -247,63 +250,7 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div class="post">
-                    <div class="post-top">
-                        <img class="user-profile post-profile" src="https://scontent.fktm1-2.fna.fbcdn.net/v/t39.30808-6/269600665_456575882835381_3686843976647157600_n.jpg?_nc_cat=109&ccb=1-5&_nc_sid=174925&_nc_eui2=AeF6QuV-8318wmfJPuGni3uVuWSCuFVl7dK5ZIK4VWXt0i_fUKqBQRZJHN9PRuNsvYhbzkdQMjR25BvGmbBGdQaj&_nc_ohc=ubikt0KUQ0UAX8AhLgj&_nc_ht=scontent.fktm1-2.fna&oh=00_AT8A4hM4jNVaJ5OC3WBta7zBD8H7BEjnGQi7dV1di1UxQw&oe=62764BB6" alt="">
-                        <div class="post-topInfo">
-                            <h5>{{auth()->user()->fname}} {{auth()->user()->lname}}</h5>
-                            <p>28 April at 8:30 PM.</p>
-                        </div>
-                    </div>
-
-                    <div class="post-bottom">
-                        <p>Post Without Caption</p>
-                    </div>
-    
-                    <div class="post-image">
-                        <img class="post-profile" src="" alt="">
-                    </div>
-
-
-                    <div class="likeCount">
-                        <div class="emoji">
-                            <div class="like">
-                                <img class="j1lvzwm4" height="18" role="presentation" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%2318AFFF'/%3e%3cstop offset='100%25' stop-color='%230062DF'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0 0 0 0 0 0.299356041 0 0 0 0 0.681187726 0 0 0 0.3495684 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 00-8 8 8 8 0 1016 0 8 8 0 00-8-8z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M12.162 7.338c.176.123.338.245.338.674 0 .43-.229.604-.474.725a.73.73 0 01.089.546c-.077.344-.392.611-.672.69.121.194.159.385.015.62-.185.295-.346.407-1.058.407H7.5c-.988 0-1.5-.546-1.5-1V7.665c0-1.23 1.467-2.275 1.467-3.13L7.361 3.47c-.005-.065.008-.224.058-.27.08-.079.301-.2.635-.2.218 0 .363.041.534.123.581.277.732.978.732 1.542 0 .271-.414 1.083-.47 1.364 0 0 .867-.192 1.879-.199 1.061-.006 1.749.19 1.749.842 0 .261-.219.523-.316.666zM3.6 7h.8a.6.6 0 01.6.6v3.8a.6.6 0 01-.6.6h-.8a.6.6 0 01-.6-.6V7.6a.6.6 0 01.6-.6z'/%3e%3c/g%3e%3c/svg%3e" width="18">
-                            </div>
-                            <div class="love">
-                                <img class="j1lvzwm4" height="18" role="presentation" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%23FF6680'/%3e%3cstop offset='100%25' stop-color='%23E61739'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0.710144928 0 0 0 0 0 0 0 0 0 0.117780134 0 0 0 0.349786932 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 100 16A8 8 0 008 0z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M10.473 4C8.275 4 8 5.824 8 5.824S7.726 4 5.528 4c-2.114 0-2.73 2.222-2.472 3.41C3.736 10.55 8 12.75 8 12.75s4.265-2.2 4.945-5.34c.257-1.188-.36-3.41-2.472-3.41'/%3e%3c/g%3e%3c/svg%3e" width="18">
-                            </div>&nbsp;
-                            <p>101K</p>
-                        </div>
-                        <div class="commentShare">
-                            <div class="comment">
-                                <p>103K Comments</p>
-                            </div>
-                            <div class="share">
-                                <p>1.3K Shares</p>
-                            </div>
-                        </div>
-                    </div>
-
-
-    
-                    <div class="post-options">
-                        <div class="post-option"> {{--like button--}}
-                            <span class="material-icons"><i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/zz_vrFBDgEM.png&quot;); background-position: 0px -297px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i></span>
-                            <p>Like</p>
-                        </div>
-                        <div class="post-option"> {{--comment button--}}
-                            <span class="material-icons"><i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/zz_vrFBDgEM.png&quot;); background-position: 0px -259px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i></i></span>
-                            <p>Comment</p>
-                        </div>
-                        <div class="post-option"> {{--share button--}}
-                            <span class="material-icons"><i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/zz_vrFBDgEM.png&quot;); background-position: 0px -316px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i></span>
-                            <p>Share</p>
-                        </div>
-                    </div>
-                </div>
+                @endforeach <br>
 
 
                             
@@ -335,7 +282,7 @@
                                 <p style="margin: 0;">See your profile</p>
                             </div>
                         </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                   {{-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> --}}
                   {{-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> --}}
                     </div>
@@ -388,7 +335,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <form action="" method="POST" id="form" enctype="multipart/form-data">
+                <form action="{{route('postStore')}}" method="POST" id="form" enctype="multipart/form-data">
+                    @csrf
                     <div class="create-post">
                         <div class="upper-post">
                             <img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
@@ -434,7 +382,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button class="post-button">Post</button>
+                        <button type="submit" class="post-button">Post</button>
                     </div>
                 </form>
                 </div>

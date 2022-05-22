@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoverController;
-
+use App\Http\Controllers\PostController;
 
 // Route::get('/',[CustomAuthController::class, 'logReg'])->name('logReg');
 
@@ -21,3 +21,6 @@ Route::post('/profile', [ProfileController::class, 'profileUpdate'])->middleware
 
 Route::post('/profile/cover', [CoverController::class, 'coverPicUpdate'])->middleware('isLoggedIn')->name('coverPicUpdate');
 
+
+Route::post('/',[PostController::class, 'store'])->name('postStore');
+ 

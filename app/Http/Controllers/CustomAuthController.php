@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use App\Models\Post;
 
 class CustomAuthController extends Controller
 {
@@ -14,7 +14,8 @@ class CustomAuthController extends Controller
 
     public function check(){
         if(Auth::check()){
-            return view('facebook');
+            $posts = Post::all();
+            return view('facebook', ['showPost'=>$posts]);
         }
             return view('auth.logReg');
     }
