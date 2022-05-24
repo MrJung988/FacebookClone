@@ -19,8 +19,8 @@ return new class extends Migration
             $table->string('lname');
             $table->string('mobOrMail')->unique();
             $table->string('password');
-            $table->string('profilePic')->nullable();
-            $table->string('coverPic')->nullable();
+            $table->string('profilePic')->default('default.jpg');
+            $table->string('coverPic')->default('cvdefault.jpg');
             $table->string('month');
             $table->integer('day');
             $table->integer('year');

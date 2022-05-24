@@ -146,7 +146,16 @@
 }
 /* Navbar Ends */
 
-
+/* Popup Message Begins */
+#messagePopUp{
+    z-index: 100;
+    position: absolute;
+    right: 10px;
+    top: 70px;
+    color: green;
+    padding: 30px;
+}
+/* Popup Message Ends */
 
 /* Sidebar Begins */
 
@@ -195,6 +204,8 @@
     border-radius: 10px;
     margin-right: 10px;
     cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
     /* transition: transform 100ms ease-in; */
 }
 
@@ -203,12 +214,16 @@
     opacity: 0.8;
 }
 
+.create-story:hover{
+    opacity: 0.8;
+}
+
 .story-profile{
     margin: 10px;
     border: 3px solid var(--blue2);
 }
 
-.story h4{
+.create-story h4{
     position: absolute;
     bottom: 20px;
     left: 20px;
@@ -218,17 +233,34 @@
     font-size: 17px;
 }
 
+.story h4{
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    color: white;
+    font-size: 13px;
+}
+
 .storyReel{
     /* width: 100%; */
     padding: 10px;
     display: flex;
-    cursor: pointer;
+    width: 132%;
 }
 /* style="background-image: url('/images/uploads/profile-picture/{{auth()->user()->profilePic}}; background-repeat: no-repeat; background-size: cover;')" */
 .create-story{
+    position: relative;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 120px;
+    height: 200px;
+    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    margin-right: 10px;
+    cursor: pointer;
     background-position-x: center;
     background-position-y: center;
-    z-index: -2;
+    z-index: 1;
 }
 
 .storyReel .create-story svg{
@@ -239,7 +271,7 @@
     border: 4px solid white;
     margin-top: 133px;
     margin-left: 42px;
-    z-index: 1;
+    z-index: 3;
     cursor: pointer;
     
 }
@@ -260,8 +292,107 @@
     padding-bottom: 10px;
 }
 
+#mainStoryPart{
+    position: relative;
+}
 
+#mainStoryPart #storyPart{
+    width: 523px;
+    overflow: hidden;
+    display: block;
+    white-space: nowrap;
+}
+
+#prev{
+    display: inline-block;
+    position: absolute;
+    left: -153px;
+    padding: 5px;
+    cursor: pointer;
+    top: 74px;
+    font-weight: bold;
+    z-index: 1;
+}
+
+#prev i{
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid gray;
+    padding: 8px;
+}
+
+#next{
+    position: absolute;
+    right: -12px;
+    display: inline-block;
+    cursor: pointer;
+    top: 80px;
+  }
+
+#next svg{
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    border: 1px solid gray;
+    padding: 5px;
+}
 /* Stories Ends */
+
+
+
+
+/* Story Create Model Begins */
+.storyCreate label{
+    background-color: var(--green2);
+    padding: 6px;
+    border-radius: 3px;
+    width: 80%;
+    text-align: center;
+    margin: 10px;
+    margin-left: 12% !important;
+    color: white;
+    cursor: pointer;
+}
+
+.storyCreate label:hover{
+    background-color: var(--green1);
+}
+
+.previewStory img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.previewStoryImage{
+    height: 200px;
+    width: 120px;
+    /* border: 1px solid gray; */
+    border-radius: 10px;
+    margin-left: 37%;
+    background-color: var(--gray3);
+    cursor: pointer;
+    box-shadow: 0px 5px 17px -7px rgba(0, 0, 0, 0.75);
+}
+
+.postStory button{
+    background-color: var(--blue2);
+    padding: 6px;
+    border-radius: 3px;
+    width: 80%;
+    text-align: center;
+    margin: 10px;
+    margin-left: 12% !important;
+    color: white;
+    font-weight: bold;
+}
+
+/* Story Create Model Ends */
+
 
 
 .main-body{
@@ -357,7 +488,7 @@ body{
     border: none ;
 }
 
-.middle-post #image-container{
+/* .middle-post #image-container{
     height: 120px;
     width: 200px;
     border-radius: 6px;
@@ -379,7 +510,7 @@ body{
     font-weight: bold;
     position: absolute;
     cursor: pointer;
-}
+} */
 
 
 .create-post .post-button{
@@ -415,8 +546,6 @@ body{
 .lower-post .icon{
     cursor: pointer;
 }
-
-
 /* CREATE POST ENDS */
 
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 use Intervention\Image\Facades\Image;
 
 class PostController extends Controller
@@ -18,15 +19,18 @@ class PostController extends Controller
         $post = new Post;
         $post -> caption = $request-> caption; 
 
-        if($request->hasFile('postImage')){
-            $postImage = $request -> file('postImage');
+        if($request->hasFile('postImages')){
+            // dd($request->all());
+            foreach($request->file('postImages') as $postImage){
+            // $postImage = $request -> file('postImage');
+            // dd($postImage);
             $extension = $postImage->getClientOriginalExtension();
-            $filename = time().'.'.$extension;
+            $filename = time().Str::random(4).'.'.$extension;
             // $postImage->move('/images/uploads/PostImage/',$filename);
             Image:: make($postImage)->save(public_path('images/uploads/PostImage/'.$filename));
 
             $post-> postImage = $filename;   //storing the value
-
+            }
         }
         $user->post()->save($post);
 

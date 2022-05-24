@@ -71,6 +71,13 @@ a{
 }
 
 
+/* Show pop up message */
+#popupMessage{
+    top: 10px;
+    right: 305px;
+    position: absolute;
+}
+
 
 /* FORM */
 .form-container, .form{

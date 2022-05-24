@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use App\Models\Post;
+use App\Models\Story;
 
 class CustomAuthController extends Controller
 {
@@ -14,8 +15,11 @@ class CustomAuthController extends Controller
 
     public function check(){
         if(Auth::check()){
-            $posts = Post::all();
-            return view('facebook', ['showPost'=>$posts]);
+            $posts = Post::latest()->get ();
+            $story = Story::latest()->get();
+            // dd($posts->user->profilePic);
+            // dd($story->user->profilePic);
+            return view('facebook', ['showPost'=>$posts], ['storys'=>$story]);
         }
             return view('auth.logReg');
     }
@@ -37,7 +41,8 @@ class CustomAuthController extends Controller
 
         // dd('Successfully validated!');
 
-        User::create($attributes);
+        $user= User::create($attributes);
+        auth()->login($user);
                 
         if ($attributes){
             return redirect('/')->with('success','Your account has been created.');
@@ -55,7 +60,7 @@ class CustomAuthController extends Controller
 
         // dd('hl');
         if (Auth::attempt($attributes)) {
-            return redirect()->route('authCheck')->with('success','You have registered successfully');
+            return redirect()->route('authCheck')->with('success','You are successfully logged in.');
         }else{
             return back()->with('fail', 'You have to enter valid details.');
         }
@@ -69,7 +74,7 @@ class CustomAuthController extends Controller
  
         $request->session()->regenerateToken();
         
-        return redirect(route('authCheck'));
+        return redirect(route('authCheck'))->with('success', 'You are logged out!');
         // return redirect('/')->with('success', 'You're logged out!);
     }
 }

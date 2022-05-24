@@ -9,10 +9,11 @@
     <link rel="icon" type="image/x-icon" href="/images/favicon.svg">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link href="{{ URL::asset('css/home.css') }}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 </head>
-
     <body>
-        {{-- HEADER BEGINS --}}
+
+    {{-- HEADER BEGINS --}}
         <div class="header">
             <div class="header-left">
                 @include('fblogo')                
@@ -57,12 +58,22 @@
                 </div>  
             </div>
         </div>
-        {{-- HEADER ENDS --}}
-        
+    {{-- HEADER ENDS --}}
 
-        {{-- MAIN BODY BEGINS --}}
+    {{-- Success Popup message --}}
+    <div id="messagePopUp">
+        @if (session()->has('success'))
+        <div class="alert alert-success">{{session('success')}}</div>                    
+        @endif
+        @if (session()->has('fail'))
+            <div class="alert alert-danger">{{session('fail')}}</div>                    
+        @endif
+    </div>
+        
+    
+    {{-- MAIN BODY BEGINS --}}
         <div class="main-body">
-            {{-- SIDEBAR BEGINS --}}
+        {{-- SIDEBAR BEGINS --}}
             <div class="sidebar">
                 <div class="sidebarRow">
                     <a href="profile" style="text-decoration: none; display:flex; color:black;"><img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
@@ -97,35 +108,60 @@
                     <h4>See More</h4>
                 </div>
             </div>
-            {{-- SIDEBAR ENDS --}}
+        {{-- SIDEBAR ENDS --}}
 
-            {{-- FEED SECTION BEGINS --}}
+        {{-- FEED SECTION BEGINS --}}
             <div class="feed">
+                {{-- STORY BEGINS --}}
                 <div class="storyReel">
-                    {{-- STORY BEGINS --}}
-                    <div style="background-image: url('/images/uploads/profile-picture/{{auth()->user()->profilePic}}')"  class="story create-story">
+                    <form action="">
+                    <label style="background-image: url('/images/uploads/profile-picture/{{auth()->user()->profilePic}}')"  class="create-story" data-bs-toggle="modal" data-bs-target="#storyCreate">
                         {{-- <img class="user-profile story-profile create-story" src="/images/uploads/default.jpg" alt=""> --}}
                         <h4 class="">Create Story</h4>
                         <svg fill="currentColor" viewBox="0 0 20 20" width="2.5em" height="2.5em" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 ljqsnud1 jnigpg78 odw8uiq3 __web-inspector-hide-shortcut__"><g fill-rule="evenodd" transform="translate(-446 -350)"><g fill-rule="nonzero"><path d="M95 201.5h13a1 1 0 1 0 0-2H95a1 1 0 1 0 0 2z" transform="translate(354.5 159.5)"></path><path d="M102.5 207v-13a1 1 0 1 0-2 0v13a1 1 0 1 0 2 0z" transform="translate(354.5 159.5)"></path></g></g></svg>
+                    </label>
+                    <input type="file"  style="display: none;">
+                    </form>
+                    <div id="mainStoryPart">
+                        <div id="storyPart">
+                            @foreach ($storys as $story)
+                            <div style="background-image: url('/images/uploads/story-photo/{{$story->storyPic}}')"  class="story">
+                                {{-- <img class="user-profile story-profile" src="/images/uploads/story-photo/" alt=""> --}}
+                                <img class="user-profile story-profile" src="/images/uploads/profile-picture/{{$story->user->profilePic}}" alt="">
+                                {{-- <h4>Name</h4> --}}
+                                <h4>{{$story->user->fname}} {{$story->user->lname}}</h4>
+                            </div>
+                            @endforeach
+                            {{-- <div style="background-image: url('/images/uploads/friend-list/5.jpg')"  class="story">
+                                <img class="user-profile story-profile" src="/images/uploads/friend-list/5.jpg" alt="">
+                                <h4>Anup</h4>
+                            </div>
+                            <div style="background-image: url('/images/uploads/friend-list/4.jpg')"  class="story">
+                                <img class="user-profile story-profile" src="/images/uploads/friend-list/4.jpg" alt="">
+                                <h4>Ronish</h4>
+                            </div>
+                            <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
+                                <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
+                                <h4>Samir</h4>
+                            </div>                    
+                            <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
+                                <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
+                                <h4>Samir</h4>
+                            </div>
+                            <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
+                                <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
+                                <h4>Samir</h4>
+                            </div> --}}
+                        </div>
+                        <div id="nav">
+                            <div id="prev"><i class="fa-solid fa-arrow-left"></i></div>
+                            <div id="next"><svg fill="currentColor" viewBox="0 0 20 20" width="1em" height="1em" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 py1f6qlh jnigpg78 odw8uiq3"><g fill-rule="evenodd" transform="translate(-446 -350)"><g fill-rule="nonzero"><path d="M101.751 211.001a1 1 0 0 0 1.415 1.415l5.208-5.209a1 1 0 0 0 0-1.414l-5.208-5.209A1 1 0 0 0 101.75 202l4.501 4.501-4.5 4.501z" transform="translate(355 153.5)"></path><path d="M94.334 207.5h12.812a1 1 0 1 0 0-2H94.333a1 1 0 1 0 0 2z" transform="translate(355 153.5)"></path></g></g></svg></div>
+                            {{-- <div id="next"><svg fill="currentColor" viewBox="0 0 20 20" width="1em" height="1em" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 py1f6qlh jnigpg78 odw8uiq3"><g fill-rule="evenodd" transform="translate(-446 -350)"><g fill-rule="nonzero"><path d="M101.751 211.001a1 1 0 0 0 1.415 1.415l5.208-5.209a1 1 0 0 0 0-1.414l-5.208-5.209A1 1 0 0 0 101.75 202l4.501 4.501-4.5 4.501z" transform="translate(355 153.5)"></path><path d="M94.334 207.5h12.812a1 1 0 1 0 0-2H94.333a1 1 0 1 0 0 2z" transform="translate(355 153.5)"></path></g></g></svg></div> --}}
+                          </div>
                     </div>
-                    <div style="background-image: url('/images/uploads/friend-list/2.jpg')"  class="story">
-                        <img class="user-profile story-profile" src="/images/uploads/friend-list/2.jpg" alt="">
-                        <h4>MrJung</h4>
-                    </div>
-                    <div style="background-image: url('/images/uploads/friend-list/5.jpg')"  class="story">
-                        <img class="user-profile story-profile" src="/images/uploads/friend-list/5.jpg" alt="">
-                        <h4>Anup</h4>
-                    </div>
-                    <div style="background-image: url('/images/uploads/friend-list/4.jpg')"  class="story">
-                        <img class="user-profile story-profile" src="/images/uploads/friend-list/4.jpg" alt="">
-                        <h4>Ronish</h4>
-                    </div>
-                    <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
-                        <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
-                        <h4>Samir</h4>
-                    </div>                    
-                    {{-- STORY ENDS --}}
+                    
                 </div>
+                {{-- STORY ENDS --}}
 
                 {{-- MESSAGE SENDER BEGINS --}}
                 <div class="messageSender">
@@ -200,7 +236,8 @@
                         <img class="user-profile post-profile" src="/images/uploads/profile-picture/{{$post->user->profilePic}}" alt="">
                         <div class="post-topInfo">
                             <h5>{{$post->user->fname}} {{$post->user->lname}}</h5>
-                            <p>{{$post->created_at}}</p>
+                            <p>{{$post->created_at->diffForHumans()}}</p>
+                            {{-- <p>{{$post->created_at}}</p> --}}
                         </div>
                     </div>
 
@@ -257,17 +294,48 @@
                 {{-- POST SECTION ENDS --}}
 
             </div>
-            {{-- FEED SECTION ENDS --}}
+        {{-- FEED SECTION ENDS --}}
 
-            {{-- WIDGETS BEGIN --}}
+        {{-- WIDGETS BEGIN --}}
             <div class="widgets">
                 <div class="fb-page" data-href="https://www.facebook.com/facebook" data-tabs="timeline" data-width="500" data-height="1000" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
                     <blockquote cite="https://www.facebook.com/facebook" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/facebook">Meta</a></blockquote>
                 </div>
             </div>
-            {{-- WIDGETS ENDS --}}
+        {{-- WIDGETS ENDS --}}
         </div>
-        {{-- MAIN BODY ENDS --}}
+    {{-- MAIN BODY ENDS --}}
+
+
+    {{-- Story Upload Modal Begins --}}
+        <div class="modal fade" id="storyCreate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Create Story</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{route('storyStore')}}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <div class="storyCreate">
+                            <label class="" for="uploadStory">Select Image</label>
+                            <input name="storyPic" type="file" id="uploadStory" style="display: none;">
+                        </div>
+                        <div class="previewStory">
+                            <div class="previewStoryImage">
+                                <img id="blah" src="#" style="border-radius: 10px;"/> 
+                            </div>
+                        </div>
+                        <div class="postStory">
+                            <button class="btn btn-primary" type="submit">Create Story</button>
+                        </div>
+                    </form>
+                </div>
+              </div>
+            </div>
+        </div>
+    {{-- Story Upload Modal Ends --}}
 
         
         {{-- Log out Model Begins --}}
@@ -326,7 +394,7 @@
         {{-- Log out Model Ends --}}
         
 
-        {{-- Post-Section Modal Begins --}}
+    {{-- Post-Section Modal Begins --}}
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
             <div class="modal-content">
@@ -335,7 +403,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                <form action="{{route('postStore')}}" method="POST" id="form" enctype="multipart/form-data">
+                <form action="/postStore" method="POST" id="form" enctype="multipart/form-data">
                     @csrf
                     <div class="create-post">
                         <div class="upper-post">
@@ -363,7 +431,7 @@
                             <div class="lpsecond">
                                 <div class="icon icon1">
                                     <label for="uploadImage"><i data-visualcompletion="css-img" class="hu5pjgll bixrwtb6" style="cursor: pointer; height: 24px; width: 24px; background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/pPMrpR3Akbv.png&quot;); background-position: 0px -183px; background-size: auto; background-repeat: no-repeat; display: inline-block;"></i></label>
-                                    <input type="file" name="postImage" class="inputFile" id="uploadImage" style="display: none;" onchange="previewFiles()" multiple>
+                                    <input type="file" name="postImages[]" class="inputFile" id="uploadImage" style="display: none;" onchange="previewFiles()" multiple>
                                 </div>
                                 <div class="icon icon2">
                                     <i data-visualcompletion="css-img" class="hu5pjgll bixrwtb6" style="height: 24px; width: 24px; background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/yd/r/pPMrpR3Akbv.png&quot;); background-position: 0px -158px; background-size: auto; background-repeat: no-repeat; display: inline-block;"></i>
@@ -390,54 +458,77 @@
             </div>
             </div>
         </div>
-        {{-- Post-Section Modal Ends --}}
+    {{-- Post-Section Modal Ends --}}
 
         {{-- Widgets Js--}}
-        <div id="fb-root"></div>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0" nonce="MB2KILGa"></script>
+            <div id="fb-root"></div>
+            <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v13.0" nonce="MB2KILGa"></script>
         {{-- Widgets Js--}}
+
+
+        {{-- JS to hide successful pop up begins --}}
+            <script>
+                setTimeout(function() {
+                $('#messagePopUp').fadeOut('fast');
+                }, 5000);
+            </script>
+        {{-- JS to hide successful pop up ends --}}
+
+        {{-- Preview image js for story begins --}}
+            <script>                
+                uploadStory.onchange = evt => {
+                const [file] = uploadStory.files
+                if (file) {
+                    blah.src = URL.createObjectURL(file)
+                }
+                }
+            </script>
+        {{-- Preview image js for story ends --}}
 
 
 
         {{-- Preview image js begins--}}
             <script type="text/javascript">
-
-
-            function previewFiles() {
-
-            var preview = document.querySelector('#preview');
-            var files   = document.querySelector('input[type=file]').files;
-
-            function readAndPreview(file) {
-
-            // Make sure `file.name` matches our extensions criteria
-            if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
-                var reader = new FileReader();
-
-                reader.addEventListener("load", function () {
-                var image = new Image();
-                image.height = 100;
-                image.title = file.name;
-                image.src = this.result;
-                preview.appendChild( image );
-                }, false);
-
-                reader.readAsDataURL(file);
-            }
-
-            }
-
-            if (files) {
-            [].forEach.call(files, readAndPreview);
-            }
-
-            }
-
-
-            </script>
+                function previewFiles() {
+                var preview = document.querySelector('#preview');
+                var files   = document.querySelector('#uploadImage').files;
+                function readAndPreview(file) {
+                // Make sure `file.name` matches our extensions criteria
+                if ( /\.(jpe?g|png|gif)$/i.test(file.name) ) {
+                    var reader = new FileReader();
+                    reader.addEventListener("load", function () {
+                    var image = new Image();
+                    image.height = 100;
+                    image.title = file.name;
+                    image.src = this.result;
+                    preview.appendChild( image );
+                    }, false);
+                    reader.readAsDataURL(file);
+                }
+                }
+                if (files) {
+                [].forEach.call(files, readAndPreview);
+                }
+                }
+                </script>
         {{-- Preview image js end--}}
 
 
+        {{-- Ajax code for prev and next in story begins --}}
+            <script>
+                $('#prev').on('click', function() {
+                    $('#mainStoryPart #storyPart').animate({
+                    scrollLeft: '-=100'
+                    }, 300, 'swing');
+                });
+                
+                $('#next').on('click', function() {
+                    $('#mainStoryPart #storyPart').animate({
+                    scrollLeft: '+=100'
+                    }, 300, 'swing');
+                });
+            </script>
+        {{-- Ajax code for prev and next in story ends --}}
 
     <script src="{{URL::asset('js/script.js')}}" type="text/javascript"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

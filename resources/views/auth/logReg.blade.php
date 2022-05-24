@@ -11,7 +11,8 @@
     <link href="{{ URL::asset('css/login.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/media-queries.css') }}" rel="stylesheet">
     <link href="{{ URL::asset('css/registration.css') }}" rel="stylesheet">
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
 </head>
 <body>
     <main class="container">
@@ -21,16 +22,20 @@
             {{-- <img src="images/logo.svg" class="title-logo"> --}}
             <p class="title-paragraph">Connect with friends and the world around you on Facebook.</p>
         </div>
+
+        <div id="popupMessage">
+            @if (session()->has('success'))
+            <div class="alert alert-success">{{session('success')}}</div>                    
+            @endif
+            @if (session()->has('fail'))
+                <div class="alert alert-danger">{{session('fail')}}</div>                    
+            @endif
+        </div>
         
         {{-- Login FORM --}}
         <div class="form-container">
             <form action="{{route('login-user')}}" class="form" method="POST">
-                @if (session()->has('success'))
-                    <div class="alert alert-success">{{session('success')}}</div>                    
-                @endif
-                @if (session()->has('fail'))
-                    <div class="alert alert-danger">{{session('fail')}}</div>                    
-                @endif
+                
                 @csrf
                 <div class="input-container">
                     <input type="text" placeholder="Email or phone number" class="form-input form-input--email" name="mobOrMail" value="{{old('mobOrMail')}}">
@@ -172,6 +177,14 @@
                 samir &copy 2022.
         </div>
     </footer>
+
+     {{-- JS to hide successful pop up begins --}}
+     <script>
+        setTimeout(function() {
+        $('#popupMessage').fadeOut('fast');
+        }, 5000);
+    </script>
+{{-- JS to hide successful pop up ends --}}
 
     
 
