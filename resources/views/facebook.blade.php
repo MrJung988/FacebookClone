@@ -259,7 +259,7 @@
                             <input type="hidden" class="liked" id="liked" name="liked" value="{{$post->id}}"/>
                             <button class="reloader" id="reloader" type="submit" style="border: none; background-color:transparent; color:#737373; display:flex;">
                             <span class="material-icons" style="margin-top: 3px;">
-                                <i class="like-unlike-icon fa fa-thumbs-o-up" style="margin-top: 7px;"></i>
+                                <i class="like-unlike-icon fa {{ $post->isAuthUserLikedPost() ? 'fa-thumbs-up' : 'fa-thumbs-o-up' }}" style="margin-top: 7px;"></i>
                             </span>
                             <p id="change">Like</p>
                             </button>
