@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoverController;
+use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StoryController;
 
@@ -26,4 +27,5 @@ Route::post('/profile/cover', [CoverController::class, 'coverPicUpdate'])->middl
 Route::post('/postStore',[PostController::class, 'store'])->name('postStore');
 
 Route::post('/storyStore', [StoryController::class, 'storeStory'])->name('storyStore');
- 
+
+Route::get('/like', [LikeController::class, 'likePost'])->name('likePost');

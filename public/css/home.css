@@ -724,6 +724,10 @@ body{
     padding: 2px 25px;
 }
 
+.post-bottom p{
+    margin: -10px -15px 5 -15px;
+}
+
 
 .likeCount{
     display: flex;    
@@ -970,3 +974,7 @@ body{
 
 
 /* Media queries ends */
+
+.fa-thumbs-up{
+    color: blue !important;
+}

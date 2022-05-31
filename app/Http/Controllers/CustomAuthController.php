@@ -17,8 +17,7 @@ class CustomAuthController extends Controller
         if(Auth::check()){
             $posts = Post::latest()->get ();
             $story = Story::latest()->get();
-            // dd($posts->user->profilePic);
-            // dd($story->user->profilePic);
+            
             return view('facebook', ['showPost'=>$posts], ['storys'=>$story]);
         }
             return view('auth.logReg');

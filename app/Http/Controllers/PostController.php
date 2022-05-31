@@ -25,7 +25,7 @@ class PostController extends Controller
             // $postImage = $request -> file('postImage');
             // dd($postImage);
             $extension = $postImage->getClientOriginalExtension();
-            $filename = time().Str::random(4).'.'.$extension;
+            $filename = time().Str::random(2).'.'.$extension;
             // $postImage->move('/images/uploads/PostImage/',$filename);
             Image:: make($postImage)->save(public_path('images/uploads/PostImage/'.$filename));
 

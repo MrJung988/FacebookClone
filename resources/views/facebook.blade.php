@@ -16,7 +16,7 @@
     {{-- HEADER BEGINS --}}
         <div class="header">
             <div class="header-left">
-                @include('fblogo')                
+                <a href="{{route('authCheck')}}">@include('fblogo')</a>            
                 <div class="header-input">
                     <span class="material-icons"><i class="fa-solid fa-magnifying-glass"></i></span>
                     <input type="text" placeholder="Search Facebook">
@@ -60,19 +60,21 @@
         </div>
     {{-- HEADER ENDS --}}
 
-    {{-- Success Popup message --}}
-    <div id="messagePopUp">
-        @if (session()->has('success'))
-        <div class="alert alert-success">{{session('success')}}</div>                    
-        @endif
-        @if (session()->has('fail'))
-            <div class="alert alert-danger">{{session('fail')}}</div>                    
-        @endif
-    </div>
+    {{-- Success Popup message Begins--}}
+        <div id="messagePopUp">
+            @if (session()->has('success'))
+            <div class="alert alert-success">{{session('success')}}</div>                    
+            @endif
+            @if (session()->has('fail'))
+                <div class="alert alert-danger">{{session('fail')}}</div>                    
+            @endif
+        </div>
+    {{-- Success Popup message Ends--}}
         
     
     {{-- MAIN BODY BEGINS --}}
         <div class="main-body">
+
         {{-- SIDEBAR BEGINS --}}
             <div class="sidebar">
                 <div class="sidebarRow">
@@ -112,7 +114,8 @@
 
         {{-- FEED SECTION BEGINS --}}
             <div class="feed">
-                {{-- STORY BEGINS --}}
+
+            {{-- STORY BEGINS --}}
                 <div class="storyReel">
                     <form action="">
                     <label style="background-image: url('/images/uploads/profile-picture/{{auth()->user()->profilePic}}')"  class="create-story" data-bs-toggle="modal" data-bs-target="#storyCreate">
@@ -132,26 +135,6 @@
                                 <h4>{{$story->user->fname}} {{$story->user->lname}}</h4>
                             </div>
                             @endforeach
-                            {{-- <div style="background-image: url('/images/uploads/friend-list/5.jpg')"  class="story">
-                                <img class="user-profile story-profile" src="/images/uploads/friend-list/5.jpg" alt="">
-                                <h4>Anup</h4>
-                            </div>
-                            <div style="background-image: url('/images/uploads/friend-list/4.jpg')"  class="story">
-                                <img class="user-profile story-profile" src="/images/uploads/friend-list/4.jpg" alt="">
-                                <h4>Ronish</h4>
-                            </div>
-                            <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
-                                <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
-                                <h4>Samir</h4>
-                            </div>                    
-                            <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
-                                <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
-                                <h4>Samir</h4>
-                            </div>
-                            <div style="background-image: url('/images/uploads/friend-list/6.jpg')"  class="story">
-                                <img class="user-profile story-profile" src="/images/uploads/friend-list/6.jpg" alt="">
-                                <h4>Samir</h4>
-                            </div> --}}
                         </div>
                         <div id="nav">
                             <div id="prev"><i class="fa-solid fa-arrow-left"></i></div>
@@ -161,9 +144,9 @@
                     </div>
                     
                 </div>
-                {{-- STORY ENDS --}}
+            {{-- STORY ENDS --}}
 
-                {{-- MESSAGE SENDER BEGINS --}}
+            {{-- MESSAGE SENDER BEGINS --}}
                 <div class="messageSender">
                     <div class="messageSender-top">
                         <img class="user-profile" src="/images/uploads/profile-picture/{{auth()->user()->profilePic}}" alt="">
@@ -190,11 +173,11 @@
                         </div>
                     </div>
                 </div>
-                {{-- MESSAGE SENDER ENDS --}}
+            {{-- MESSAGE SENDER ENDS --}}
 
 
 
-                {{-- Create room Section Begins --}}
+            {{-- Create room Section Begins --}}
                 <div class="createRoom">
                     <div class="createRoom1">
                         <i data-visualcompletion="css-img" class="hu5pjgll" style="background-image:url('https://static.xx.fbcdn.net/rsrc.php/v3/ym/r/5zaboDASSye.png');background-position:0 -219px;background-size:auto;width:24px;height:24px;background-repeat:no-repeat;display:inline-block"></i>
@@ -223,12 +206,10 @@
                             <svg fill="currentColor" viewBox="0 0 20 20" width="20px" height="20px" class="a8c37x1j ms05siws l3qrxjdp b7h9ocf4 py1f6qlh rgmg9uty b73ngqbp"><path d="M7.8 4.53 13.273 10 7.8 15.47a.75.75 0 0 0 1.061 1.06l6-6a.751.751 0 0 0 0-1.06l-6-6A.75.75 0 0 0 7.8 4.53z"></path></svg></div>
                     </div>
                 </div>
-                {{-- Create room Section Ends --}}
-
-
+            {{-- Create room Section Ends --}}
 
                 
-                {{-- POST SECTION BEGINS --}}
+            {{-- POST SECTION BEGINS --}}
                 
                 @foreach ($showPost as $post)                    
                 <div class="post">
@@ -237,7 +218,6 @@
                         <div class="post-topInfo">
                             <h5>{{$post->user->fname}} {{$post->user->lname}}</h5>
                             <p>{{$post->created_at->diffForHumans()}}</p>
-                            {{-- <p>{{$post->created_at}}</p> --}}
                         </div>
                     </div>
 
@@ -249,6 +229,7 @@
                         <img class="post-profile" src="/images/uploads/PostImage/{{$post->postImage}}" alt="">
                     </div>
                     
+                   
 
                     <div class="likeCount">
                         <div class="emoji">
@@ -258,7 +239,9 @@
                             <div class="love" title="love react">
                                 <img class="j1lvzwm4" height="22" role="presentation" src="data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 16 16'%3e%3cdefs%3e%3clinearGradient id='a' x1='50%25' x2='50%25' y1='0%25' y2='100%25'%3e%3cstop offset='0%25' stop-color='%23FF6680'/%3e%3cstop offset='100%25' stop-color='%23E61739'/%3e%3c/linearGradient%3e%3cfilter id='c' width='118.8%25' height='118.8%25' x='-9.4%25' y='-9.4%25' filterUnits='objectBoundingBox'%3e%3cfeGaussianBlur in='SourceAlpha' result='shadowBlurInner1' stdDeviation='1'/%3e%3cfeOffset dy='-1' in='shadowBlurInner1' result='shadowOffsetInner1'/%3e%3cfeComposite in='shadowOffsetInner1' in2='SourceAlpha' k2='-1' k3='1' operator='arithmetic' result='shadowInnerInner1'/%3e%3cfeColorMatrix in='shadowInnerInner1' values='0 0 0 0 0.710144928 0 0 0 0 0 0 0 0 0 0.117780134 0 0 0 0.349786932 0'/%3e%3c/filter%3e%3cpath id='b' d='M8 0a8 8 0 100 16A8 8 0 008 0z'/%3e%3c/defs%3e%3cg fill='none'%3e%3cuse fill='url(%23a)' xlink:href='%23b'/%3e%3cuse fill='black' filter='url(%23c)' xlink:href='%23b'/%3e%3cpath fill='white' d='M10.473 4C8.275 4 8 5.824 8 5.824S7.726 4 5.528 4c-2.114 0-2.73 2.222-2.472 3.41C3.736 10.55 8 12.75 8 12.75s4.265-2.2 4.945-5.34c.257-1.188-.36-3.41-2.472-3.41'/%3e%3c/g%3e%3c/svg%3e" width="22">
                             </div>&nbsp;
-                            <p>101K</p>
+                            <div  id="">
+                                <p id="likesCounts" class="likesCounts"> {{$post->likes->count() ?? 0 }} </p>
+                            </div>
                         </div>
                         <div class="commentShare">
                             <div class="comment">
@@ -270,28 +253,30 @@
                         </div>
                     </div>
                     
-
-    
+                    {{-- Like post begins --}}                   
                     <div class="post-options">
-                        <div class="post-option"> {{--like button--}}
-                            <span class="material-icons"><i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/zz_vrFBDgEM.png&quot;); background-position: 0px -297px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i></span>
-                            <p>Like</p>
+                        <div class="post-option" >
+                            <input type="hidden" class="liked" id="liked" name="liked" value="{{$post->id}}"/>
+                            <button class="reloader" id="reloader" type="submit" style="border: none; background-color:transparent; color:#737373; display:flex;">
+                            <span class="material-icons" style="margin-top: 3px;">
+                                <i class="like-unlike-icon fa fa-thumbs-o-up" style="margin-top: 7px;"></i>
+                            </span>
+                            <p id="change">Like</p>
+                            </button>
                         </div>
-                        <div class="post-option"> {{--comment button--}}
+                        <div class="post-option">
                             <span class="material-icons"><i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/zz_vrFBDgEM.png&quot;); background-position: 0px -259px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i></i></span>
-                            <p>Comment</p>
+                            <p class="">Comment</p>
                         </div>
-                        <div class="post-option"> {{--share button--}}
+                        <div class="post-option">
                             <span class="material-icons"><i data-visualcompletion="css-img" class="hu5pjgll m6k467ps" style="background-image: url(&quot;https://static.xx.fbcdn.net/rsrc.php/v3/y4/r/zz_vrFBDgEM.png&quot;); background-position: 0px -316px; background-size: auto; width: 18px; height: 18px; background-repeat: no-repeat; display: inline-block;"></i></span>
                             <p>Share</p>
                         </div>
                     </div>
+                    {{-- Like post ends --}}
                 </div>
-                @endforeach <br>
-
-
-                            
-                {{-- POST SECTION ENDS --}}
+                @endforeach <br>                           
+            {{-- POST SECTION ENDS --}}
 
             </div>
         {{-- FEED SECTION ENDS --}}
@@ -338,7 +323,7 @@
     {{-- Story Upload Modal Ends --}}
 
         
-        {{-- Log out Model Begins --}}
+    {{-- Log out Model Begins --}}
         <div class="modal fade logout" id="logoutButton" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -391,7 +376,7 @@
               </div>
             </div>
           </div>
-        {{-- Log out Model Ends --}}
+    {{-- Log out Model Ends --}}
         
 
     {{-- Post-Section Modal Begins --}}
@@ -466,6 +451,36 @@
         {{-- Widgets Js--}}
 
 
+
+        {{-- AJAX code for like unlike button --}}
+            <script>
+                $('body').on('click', '.reloader', function() {
+                    var liked = $(this).parent().find('.liked').val();
+                    var this_ = $(this);
+                    $.ajax({
+                        type:'GET',
+                        url:"{{ route('likePost') }}",
+                        data:{
+                            'postId': liked,
+                        },
+                        success:function(data){
+                            this_.parent().parent().parent().find('.likesCounts').html(data.likes);
+
+                            if(data.messages == 'liked')
+                            {
+                                this_.find('.like-unlike-icon').addClass('fa-thumbs-up').removeClass('fa-thumbs-o-up');
+                            }
+                            else
+                            {
+                                this_.find('.like-unlike-icon').removeClass('fa-thumbs-up').addClass('fa-thumbs-o-up');
+                            }
+                        }
+                    });
+                });
+            </script>
+        {{-- AJAX code for like unlike button ends--}}
+
+
         {{-- JS to hide successful pop up begins --}}
             <script>
                 setTimeout(function() {
@@ -474,7 +489,7 @@
             </script>
         {{-- JS to hide successful pop up ends --}}
 
-        {{-- Preview image js for story begins --}}
+        {{-- Preview image ajax for story begins --}}
             <script>                
                 uploadStory.onchange = evt => {
                 const [file] = uploadStory.files
@@ -483,7 +498,7 @@
                 }
                 }
             </script>
-        {{-- Preview image js for story ends --}}
+        {{-- Preview image ajax for story ends --}}
 
 
 
