@@ -51,7 +51,7 @@
                 </div>
                 <span class="text-danger small">@error('password') {{$message}} @enderror</span>
                 <button class="form-log-in-btn">Log In</button>
-                <a href="#" class="form-forgot-password">Forgot Password?</a>
+                <a href="{{ route('forgotPassword') }}" class="form-forgot-password">Forgot Password?</a>
 
                 <div class="divider"></div>
                 {{-- <a href="#" class="form-create-account-btn" id="myBtn" >Create New Account</a> --}}
