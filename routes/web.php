@@ -18,6 +18,8 @@ Route::post('/registerUser', [CustomAuthController::class, 'registerUser'])->mid
 Route::post('/loginUser', [CustomAuthController::class, 'loginUser'])->middleware('guest')->name('login-user');
 
 Route::get('/forgot-password', [ForgotPassword::class, 'forgotPassword'])->name('forgotPassword');
+Route::post('/forgot-password/search', [ForgotPassword::class, 'searchId'])->name('searchId');
+Route::get('/otp-send', [ForgotPassword::class, 'otpSend'])->name('otpSend');
 Route::get('/reset-password', [ForgotPassword::class, 'resetPassword'])->name('resetPassword');
 
 Route::get('/logout', [CustomAuthController::class, 'logout'])->middleware('isLoggedIn');

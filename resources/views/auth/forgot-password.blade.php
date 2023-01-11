@@ -10,7 +10,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 </head>
-<a href="/reset-password">reset page</a>
 
 <body style="background: #e9ebee;">
     <div class="container">
@@ -19,14 +18,25 @@
                 <div class="modal-header">
                     <h5 class="modal-title">Find your account</h5>
                 </div>
-                <div class="modal-body">
-                    <p>Please enter your email or mobile number to search for your account.</p>
-                    <input type="text" class="form-control" placeholder="Email or mobile number">
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary">Cancel</button>
-                    <button type="button" class="btn btn-primary">Search</button>
-                </div>
+                <form action="{{ route('searchId') }}" method="post">
+                    @csrf
+                    <div class="modal-body">
+                        <div id="popupMessage">
+                            @if (session()->has('success'))
+                            <div class="small alert alert-success">{{session('success')}}</div>
+                            @endif
+                            @if (session()->has('fail'))
+                            <div class="small alert alert-danger">{{session('fail')}}</div>
+                            @endif
+                        </div>
+                        <p>Please enter your email or mobile number to search for your account.</p>
+                        <input type="text" class="form-control" name="mobOrMail" placeholder="Email or mobile number">
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{{ route('authCheck') }}"><button type="button" class="btn btn-secondary">Cancel</button></a>
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
