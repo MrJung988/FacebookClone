@@ -20,7 +20,6 @@ class ForgotPasswordController extends Controller
     {
         // dd($request->all());
         $user = User::where('mobOrMail', $request->mobOrMail)->first();
-        dd($user);
         if ($user) {
             return view('auth.otp-send', compact('user'));
         } else {
@@ -31,6 +30,11 @@ class ForgotPasswordController extends Controller
     public function otpSend()
     {
         return view('auth.otp-send');
+    }
+
+    public function otpVerify()
+    {
+        return view('auth.otp-verify');
     }
 
 
