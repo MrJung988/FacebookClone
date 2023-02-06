@@ -12,7 +12,7 @@
 <body style="background: #e9ebee; margin-top: 10%;">
     <div class="container">
         <div class="modal-dialog">
-            <form action="">
+            <form action="" method="post">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">

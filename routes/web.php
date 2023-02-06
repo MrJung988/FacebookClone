@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CoverController;
-use App\Http\Controllers\ForgotPassword;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\StoryController;
@@ -17,10 +17,11 @@ Route::post('/registerUser', [CustomAuthController::class, 'registerUser'])->mid
 
 Route::post('/loginUser', [CustomAuthController::class, 'loginUser'])->middleware('guest')->name('login-user');
 
-Route::get('/forgot-password', [ForgotPassword::class, 'forgotPassword'])->name('forgotPassword');
-Route::post('/forgot-password/search', [ForgotPassword::class, 'searchId'])->name('searchId');
-Route::get('/otp-send', [ForgotPassword::class, 'otpSend'])->name('otpSend');
-Route::get('/reset-password', [ForgotPassword::class, 'resetPassword'])->name('resetPassword');
+Route::get('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgotPassword');
+Route::post('/forgot-password/search', [ForgotPasswordController::class, 'searchId'])->name('searchId');
+Route::get('/otp-send', [ForgotPasswordController::class, 'otpSend'])->name('otpSend');
+Route::get('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('resetPassword');
+Route::post('/reset-password', [ForgotPasswordController::class, 'otpSendToEmail'])->name('otpSendToEmail');
 
 Route::get('/logout', [CustomAuthController::class, 'logout'])->middleware('isLoggedIn');
 
