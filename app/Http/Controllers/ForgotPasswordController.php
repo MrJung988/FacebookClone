@@ -32,10 +32,10 @@ class ForgotPasswordController extends Controller
         return view('auth.otp-send');
     }
 
-    // public function otpVerify()
-    // {
-    //     return view('auth.otp-verify');
-    // }
+    public function otpVerify()
+    {
+        return view('auth.otp-verify');
+    }
 
 
     public function resetPassword()
