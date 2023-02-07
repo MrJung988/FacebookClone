@@ -27,6 +27,7 @@
                                 <input type="radio" checked="1">
                                 <div class="text">
                                     <p class="m-0">Send code via email</p>
+                                    <input type="hidden" name="username" value="{{ $user->fname}}">
                                     <input type="hidden" name="mobOrMail" value="{{ $user->mobOrMail }}">
                                     <p class="m-0 text-secondary small">{{ $user->mobOrMail }}</p>
                                 </div>

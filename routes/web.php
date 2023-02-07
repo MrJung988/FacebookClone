@@ -37,3 +37,8 @@ Route::post('/postStore', [PostController::class, 'store'])->name('postStore');
 Route::post('/storyStore', [StoryController::class, 'storeStory'])->name('storyStore');
 
 Route::get('/like', [LikeController::class, 'likePost'])->name('likePost');
+
+
+Route::get('mail', function () {
+    return view('mail.message');
+});

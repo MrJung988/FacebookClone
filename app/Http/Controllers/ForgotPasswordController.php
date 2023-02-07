@@ -59,9 +59,11 @@ class ForgotPasswordController extends Controller
             'created_at' => Carbon::now()
         ]);
 
-        Mail::send('auth.password.verify', ['token' => $otp], function ($message) use ($request) {
-            $message->from($request->mobOrMail);
-            $message->to('karkisamir99@gmail.com');
+        $username = $request->username;
+
+        Mail::send('mail.message', compact('username', 'otp'), function ($message) use ($request) {
+            $message->from('mrjung416@gmail.com');
+            $message->to($request->mobOrMail);
             $message->subject('Reset Password Notification');
         });
 
