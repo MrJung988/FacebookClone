@@ -20,7 +20,7 @@ Route::post('/loginUser', [CustomAuthController::class, 'loginUser'])->middlewar
 Route::get('/forgot-password', [ForgotPasswordController::class, 'forgotPassword'])->name('forgotPassword');
 Route::post('/forgot-password/search', [ForgotPasswordController::class, 'searchId'])->name('searchId');
 Route::get('/otp-send', [ForgotPasswordController::class, 'otpSend'])->name('otpSend');
-Route::get('/otp-verify', [ForgotPasswordController::class, 'otpVerify'])->name('otpVerify');
+Route::post('/otp-verify', [ForgotPasswordController::class, 'otpVerify'])->name('otpVerify');
 Route::get('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('resetPassword');
 Route::post('/reset-password', [ForgotPasswordController::class, 'otpSendToEmail'])->name('otpSendToEmail');
 
@@ -37,8 +37,3 @@ Route::post('/postStore', [PostController::class, 'store'])->name('postStore');
 Route::post('/storyStore', [StoryController::class, 'storeStory'])->name('storyStore');
 
 Route::get('/like', [LikeController::class, 'likePost'])->name('likePost');
-
-
-Route::get('mail', function () {
-    return view('mail.message');
-});

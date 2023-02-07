@@ -12,7 +12,7 @@
 <body style="background: #e9ebee; margin-top: 15%;">
     <div class="container">
         <div class="modal-dialog">
-            <form action="" method="post">
+            <form action="{{ route('otpVerify') }}" method="post">
                 @csrf
                 <div class="modal-content">
                     <div class="modal-header">

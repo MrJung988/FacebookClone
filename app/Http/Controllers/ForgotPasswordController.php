@@ -32,12 +32,6 @@ class ForgotPasswordController extends Controller
         return view('auth.otp-send');
     }
 
-    public function otpVerify()
-    {
-        return view('auth.otp-verify');
-    }
-
-
     public function resetPassword()
     {
         return view('auth.reset-password');
@@ -67,6 +61,14 @@ class ForgotPasswordController extends Controller
             $message->subject('Reset Password Notification');
         });
 
-        return view('auth.reset-password')->with('success', 'OTP send successfully');
+        return view('auth.otp-verify')->with('success', 'OTP send successfully');
+    }
+
+    public function otpVerify(Request $request)
+    {
+        // dd($request->all());
+        $opt = $request->validate([
+            'otp' => 'required'
+        ]);
     }
 }
