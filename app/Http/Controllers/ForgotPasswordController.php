@@ -53,6 +53,7 @@ class ForgotPasswordController extends Controller
             'created_at' => Carbon::now()
         ]);
 
+        $email = $request->mobOrMail;
         $username = $request->username;
 
         Mail::send('mail.message', compact('username', 'otp'), function ($message) use ($request) {
@@ -61,14 +62,25 @@ class ForgotPasswordController extends Controller
             $message->subject('Reset Password Notification');
         });
 
-        return view('auth.otp-verify')->with('success', 'OTP send successfully');
+        return view('auth.otp-verify', compact('email'))->with('success', 'OTP send successfully');
     }
 
     public function otpVerify(Request $request)
     {
-        // dd($request->all());
-        $opt = $request->validate([
+        $otp = $request->validate([
             'otp' => 'required'
         ]);
+
+        $check = DB::table('password_resets')->where([
+            'email' => $request->email,
+            'token' => $request->otp
+        ])->first();
+
+        if (!$check) {
+            return redirect()->back()->with('fail', 'OTP is invalid');
+        }
+        if ($check->token == $request->otp) {
+            return view('auth.reset-password', compact('check'));
+        }
     }
 }

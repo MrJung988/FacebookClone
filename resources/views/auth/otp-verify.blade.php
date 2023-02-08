@@ -21,6 +21,7 @@
                     <div class="modal-body">
                         <div class="col-12">
                             <label for="">OTP</label><br>
+                            <input type="hidden" name="email" value="{{ $email }}">
                             <input type="text" name="otp" class="form-control" placeholder="Enter your otp from mail">
                             <span>@error('otp') {{ $message }} @enderror</span>
                         </div>
