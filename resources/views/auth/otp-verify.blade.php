@@ -19,6 +19,14 @@
                         <h5 class="modal-title">Verify OTP</h5>
                     </div>
                     <div class="modal-body">
+                        <div id="popupMessage">
+                            @if (session()->has('success'))
+                            <div class="small alert alert-success">{{session('success')}}</div>
+                            @endif
+                            @if (session()->has('fail'))
+                            <div class="small alert alert-danger">{{session('fail')}}</div>
+                            @endif
+                        </div>
                         <div class="col-12">
                             <label for="">OTP</label><br>
                             <input type="hidden" name="email" value="{{ $email }}">

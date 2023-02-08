@@ -32,10 +32,10 @@ class ForgotPasswordController extends Controller
         return view('auth.otp-send');
     }
 
-    public function resetPassword()
-    {
-        return view('auth.reset-password');
-    }
+    // public function resetPassword()
+    // {
+    //     return view('auth.reset-password');
+    // }
 
     public function otpSendToEmail(Request $request)
     {
@@ -76,11 +76,10 @@ class ForgotPasswordController extends Controller
             'token' => $request->otp
         ])->first();
 
-        if (!$check) {
-            return redirect()->back()->with('fail', 'OTP is invalid');
-        }
         if ($check->token == $request->otp) {
-            return view('auth.reset-password', compact('check'));
+            return view('auth.reset-password', compact('check'))->with('success', 'OTP verified successfully');
+        } else {
+            return redirect()->back()->with('fail', 'OTP is invalid');
         }
     }
 }

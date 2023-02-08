@@ -21,7 +21,7 @@ Route::get('/forgot-password', [ForgotPasswordController::class, 'forgotPassword
 Route::post('/forgot-password/search', [ForgotPasswordController::class, 'searchId'])->name('searchId');
 Route::get('/otp-send', [ForgotPasswordController::class, 'otpSend'])->name('otpSend');
 Route::post('/otp-verify', [ForgotPasswordController::class, 'otpVerify'])->name('otpVerify');
-Route::get('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('resetPassword');
+// Route::get('/reset-password', [ForgotPasswordController::class, 'resetPassword'])->name('resetPassword');
 Route::post('/reset-password', [ForgotPasswordController::class, 'otpSendToEmail'])->name('otpSendToEmail');
 
 Route::get('/logout', [CustomAuthController::class, 'logout'])->middleware('isLoggedIn');

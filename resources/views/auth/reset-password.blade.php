@@ -19,6 +19,14 @@
                         <h5 class="modal-title">Reset your password</h5>
                     </div>
                     <div class="modal-body">
+                        <div id="popupMessage">
+                            @if (session()->has('success'))
+                            <div class="small alert alert-success">{{session('success')}}</div>
+                            @endif
+                            @if (session()->has('fail'))
+                            <div class="small alert alert-danger">{{session('fail')}}</div>
+                            @endif
+                        </div>
                         <div class="col-12">
                             <label for="">Email</label><br>
                             <input type="text" name="email" class="form-control" placeholder="Enter email address">
